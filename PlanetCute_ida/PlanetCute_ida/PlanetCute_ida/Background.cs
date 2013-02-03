@@ -9,6 +9,8 @@ namespace PlanetCute_ida
 {
     class Background
     {
+        SpriteBatch spriteBatch;
+
         Texture2D RoofNorthWest;
         Texture2D RoofNorth;
         Texture2D RoofNorthEast;
@@ -44,12 +46,28 @@ namespace PlanetCute_ida
             this.StoneBlock = StoneBlock;
         }
 
-        public virtual void Update()
+        protected override void LoadContent()
         {
+            spriteBatch = new SpriteBatch(Game.GraphicsDevice);
+            background = new Background(
+            Game.Content.Load<Texture2D>(@"images/Roof North West"),
+            Game.Content.Load<Texture2D>(@"images/Roof North"),
+            Game.Content.Load<Texture2D>(@"images/Roof North East"),
+            Game.Content.Load<Texture2D>(@"images/Roof West"),
+            Game.Content.Load<Texture2D>(@"images/Brown Block"),
+            Game.Content.Load<Texture2D>(@"images/Roof East"),
+            Game.Content.Load<Texture2D>(@"images/Roof South West"),
+            Game.Content.Load<Texture2D>(@"images/Roof South"),
+            Game.Content.Load<Texture2D>(@"images/Window Tall"),
+            Game.Content.Load<Texture2D>(@"images/Roof South East"),
+            Game.Content.Load<Texture2D>(@"images/Wall Block Tall"),
+            Game.Content.Load<Texture2D>(@"images/Door Tall Closed"),
+            Game.Content.Load<Texture2D>(@"images/Stone Block"));
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Begin();
             for (int i = 0; i < 7; i++)
             {
                 spriteBatch.Draw(StoneBlock,
@@ -138,6 +156,7 @@ namespace PlanetCute_ida
                     (RoofSouth.Width * 6),
                     (RoofNorth.Height)),
                     Color.White);
+            spriteBatch.End();
         }
     }
 }

@@ -18,7 +18,8 @@ namespace PlanetCute_ida
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        BackgroundManager backgroundManager;
+        Background bacground;
+        Player player;
 
         public Game1()
         {
@@ -39,8 +40,9 @@ namespace PlanetCute_ida
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            backgroundManager = new BackgroundManager(this);
-            Components.Add(backgroundManager);
+            background= new Background(this);
+
+            player = new Player();
 
             base.Initialize();
         }
