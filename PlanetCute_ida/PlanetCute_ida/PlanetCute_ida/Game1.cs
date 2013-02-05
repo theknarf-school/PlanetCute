@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using PlanetCute_ida;
 
 namespace PlanetCute_ida
 {
@@ -18,8 +19,12 @@ namespace PlanetCute_ida
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Background bacground;
+        
+        //Game World
+        Background background;
         Player player;
+        Life life;
+
 
         public Game1()
         {
@@ -40,8 +45,6 @@ namespace PlanetCute_ida
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            background= new Background(this);
-
             player = new Player();
 
             base.Initialize();
@@ -57,6 +60,26 @@ namespace PlanetCute_ida
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            //Background
+           background = new Background(Content.Load<Texture2D>(@"images/Roof North West"),
+            Content.Load<Texture2D>(@"images/Roof North"),
+            Content.Load<Texture2D>(@"images/Roof North East"),
+            Content.Load<Texture2D>(@"images/Roof West"),
+            Content.Load<Texture2D>(@"images/Brown Block"),
+            Content.Load<Texture2D>(@"images/Roof East"),
+            Content.Load<Texture2D>(@"images/Roof South West"),
+            Content.Load<Texture2D>(@"images/Roof South"),
+            Content.Load<Texture2D>(@"images/Window Tall"),
+            Content.Load<Texture2D>(@"images/Roof South East"),
+            Content.Load<Texture2D>(@"images/Wall Block Tall"),
+            Content.Load<Texture2D>(@"images/Door Tall Closed"),
+            Content.Load<Texture2D>(@"images/Stone Block"));
+
+            //Life
+            life = new Life(Content.Load<Texture2D>(@"images/Heart"));
+
+            //Sprites
+
 
         }
 
@@ -94,6 +117,12 @@ namespace PlanetCute_ida
             GraphicsDevice.Clear(Color.White);
 
             // TODO: Add your drawing code here
+
+            spriteBatch.Begin();
+            background.Draw(spriteBatch);
+            life.Draw(spriteBatch);
+            spriteBatch.End();
+
             base.Draw(gameTime);
         }
     }
