@@ -1,4 +1,4 @@
-7 6
+7 6 The width and height of the map
 0 3 6 10 12 14
 1 4 7 10 12 14
 1 4 7 10 12 14
@@ -6,6 +6,6 @@
 1 4 7 10 12 14
 1 13 8 11 12 14
 2 5 9 10 12 14
-2
+2 The number of spawn points
 0 4
 0 5

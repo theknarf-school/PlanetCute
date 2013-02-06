@@ -8,7 +8,7 @@ namespace PlanetCute_ida
 {
     class Map
     {
-        public struct Position { public int x; public int y; }
+        public struct Position { public Position(int x, int y) { this.x = x; this.y = y; } public int x; public int y; }
         
         private int        _width;
         private int        _height;
@@ -29,6 +29,25 @@ namespace PlanetCute_ida
             return this._spawnpoints[p];
         }
 
+        private int[] readline(TextReader reader)
+        {
+            string line = reader.ReadLine();
+            string[] bits = line.Split(' ');
+            
+            List<int> values = new List<int>();
+            int result;
+
+            for (int i = 0; i < bits.Length; i++)
+            {
+                if (int.TryParse(bits[i], out result))
+                {
+                    values.Add(result);
+                }
+            }
+
+            return values.ToArray();
+        }
+
         public void loadMap(String filename)
         {
             if (File.Exists(filename))
@@ -36,41 +55,33 @@ namespace PlanetCute_ida
                 using (TextReader reader = File.OpenText(filename))
                 {
                     // Get map size
-                    string mapSize = reader.ReadLine();
-                    string[] bits = mapSize.Split(' ');
+                    int[] mapSize = readline(reader);
 
-                    this._width  = int.Parse(bits[0]);
-                    this._height = int.Parse(bits[1]);
+                    this._width  = mapSize[0];
+                    this._height = mapSize[1];
 
                     this._map = new int[this._width, this._height];
 
                     // Get tiles
                     for (int x = 0; x < this._width; x++)
                     {
-                        string tilesInX = reader.ReadLine();
-                        string[] bits2 = tilesInX.Split(' ');
+                        int[] tilesInX = readline(reader);
 
                         for (int y = 0; y < this._height; y++)
                         {
-                            this._map[x, y] = int.Parse(bits2[y]);
+                            this._map[x, y] = tilesInX[y];
                         }
                     }
 
                     // Get number of spawnpoints
-                    int nSpawnPoints = int.Parse(reader.ReadLine());
-
+                    int nSpawnPoints = readline(reader)[0];
                     this._spawnpoints = new Position[nSpawnPoints];
 
                     // Load in spawnpoints
                     for (int i = 0; i < nSpawnPoints; i++)
                     {
-                        string[] xy = reader.ReadLine().Split(' ');
-
-                        Position tmp = new Position();
-                        tmp.x = int.Parse(xy[0]);
-                        tmp.y = int.Parse(xy[1]);
-
-                        this._spawnpoints[i] = tmp;   
+                        int[] xy = readline(reader);
+                        this._spawnpoints[i] = new Position(xy[0], xy[1]);
                     }
                 }
             }

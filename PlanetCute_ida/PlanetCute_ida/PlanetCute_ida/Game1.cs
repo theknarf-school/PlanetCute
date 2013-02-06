@@ -69,6 +69,7 @@ namespace PlanetCute_ida
 
             //Life
             life = new Life(Content.Load<Texture2D>(@"images/Heart"));
+            life.numberOfLifes = 5;
 
             c = new CharacterManager(Content, map);
         }
@@ -117,7 +118,7 @@ namespace PlanetCute_ida
             spriteBatch.Begin();
             
             background.Draw(spriteBatch);
-            life.Draw(spriteBatch, 5);
+            life.Draw(spriteBatch);
             c.Draw(spriteBatch);
 
             spriteBatch.End();

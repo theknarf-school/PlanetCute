@@ -13,7 +13,8 @@ namespace PlanetCute_ida
         Texture2D heart;
         
         private double _rotate;
-        public double rotate { get { return _rotate; } set { _rotate = value % (2 * Math.PI); } } 
+        public double rotate { get { return _rotate; } set { _rotate = value % (2 * Math.PI); } }
+        public int numberOfLifes { get; set; }
 
         public Life(Texture2D heart)
         {
@@ -24,9 +25,9 @@ namespace PlanetCute_ida
         {
         }
 
-        public virtual void Draw(SpriteBatch spriteBatch, int numberOfHearts)
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
-            for (int i = 0; i < numberOfHearts; i++)
+            for (int i = 0; i < numberOfLifes; i++)
             {
                 spriteBatch.Draw(heart, 
                     new Vector2(
