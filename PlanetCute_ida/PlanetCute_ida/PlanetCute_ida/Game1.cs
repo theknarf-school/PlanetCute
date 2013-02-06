@@ -25,7 +25,6 @@ namespace PlanetCute_ida
         Player player;
         Life life;
 
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -58,30 +57,12 @@ namespace PlanetCute_ida
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            // TODO: use this.Content to load your game content here
+            
             //Background
-           /*background = new Background(Content.Load<Texture2D>(@"images/Roof North West"),
-            Content.Load<Texture2D>(@"images/Roof North"),
-            Content.Load<Texture2D>(@"images/Roof North East"),
-            Content.Load<Texture2D>(@"images/Roof West"),
-            Content.Load<Texture2D>(@"images/Brown Block"),
-            Content.Load<Texture2D>(@"images/Roof East"),
-            Content.Load<Texture2D>(@"images/Roof South West"),
-            Content.Load<Texture2D>(@"images/Roof South"),
-            Content.Load<Texture2D>(@"images/Window Tall"),
-            Content.Load<Texture2D>(@"images/Roof South East"),
-            Content.Load<Texture2D>(@"images/Wall Block Tall"),
-            Content.Load<Texture2D>(@"images/Door Tall Closed"),
-            Content.Load<Texture2D>(@"images/Stone Block"));*/
             background = new Background(Content);
 
             //Life
             life = new Life(Content.Load<Texture2D>(@"images/Heart"));
-
-            //Sprites
-
-
         }
 
         /// <summary>
@@ -107,6 +88,9 @@ namespace PlanetCute_ida
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
+            //double t = gameTime.TotalGameTime.Milliseconds/100;
+            //this.life.rotate = (Math.Sin(t) + 1) / 4 + 0.5;
+
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -118,9 +102,7 @@ namespace PlanetCute_ida
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.White);
-
-            // TODO: Add your drawing code here
+            GraphicsDevice.Clear(Color.LightBlue);
 
             spriteBatch.Begin();
             background.Draw(spriteBatch);
