@@ -1,1 +1,2 @@
 C:\Users\Ida Merete\Documents\Visual Studio 2010\Projects\PlanetCute_ida\PlanetCute_ida\PlanetCute_idaContent\obj\x86\Debug\PlanetCute_idaContent.contentprojResolveAssemblyReference.cache
+C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_idaContent\obj\x86\Debug\PlanetCute_idaContent.contentprojResolveAssemblyReference.cache

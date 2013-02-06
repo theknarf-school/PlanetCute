@@ -46,7 +46,7 @@ namespace PlanetCute_ida
         {
             // TODO: Add your initialization logic here
             player = new Player();
-
+            this.IsMouseVisible = true;
             base.Initialize();
         }
 
@@ -61,7 +61,7 @@ namespace PlanetCute_ida
 
             // TODO: use this.Content to load your game content here
             //Background
-           background = new Background(Content.Load<Texture2D>(@"images/Roof North West"),
+           /*background = new Background(Content.Load<Texture2D>(@"images/Roof North West"),
             Content.Load<Texture2D>(@"images/Roof North"),
             Content.Load<Texture2D>(@"images/Roof North East"),
             Content.Load<Texture2D>(@"images/Roof West"),
@@ -73,7 +73,8 @@ namespace PlanetCute_ida
             Content.Load<Texture2D>(@"images/Roof South East"),
             Content.Load<Texture2D>(@"images/Wall Block Tall"),
             Content.Load<Texture2D>(@"images/Door Tall Closed"),
-            Content.Load<Texture2D>(@"images/Stone Block"));
+            Content.Load<Texture2D>(@"images/Stone Block"));*/
+            background = new Background(Content);
 
             //Life
             life = new Life(Content.Load<Texture2D>(@"images/Heart"));
@@ -120,7 +121,7 @@ namespace PlanetCute_ida
 
             spriteBatch.Begin();
             background.Draw(spriteBatch);
-            life.Draw(spriteBatch);
+            life.Draw(spriteBatch, 5);
             spriteBatch.End();
 
             base.Draw(gameTime);

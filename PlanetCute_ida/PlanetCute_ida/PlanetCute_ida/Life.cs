@@ -21,9 +21,9 @@ namespace PlanetCute_ida
         {
         }
 
-        public virtual void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw(SpriteBatch spriteBatch, int hearth)
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < hearth; i++)
             {
                 spriteBatch.Draw(heart, 
                     new Vector2(

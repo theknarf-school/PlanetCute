@@ -47,6 +47,23 @@ namespace PlanetCute_ida
             this.StoneBlock = StoneBlock;
         }
 
+        public Background(ContentManager Content)
+        {
+            this.RoofNorthWest = Content.Load<Texture2D>(@"images/Roof North West");
+            this.RoofNorth = Content.Load<Texture2D>(@"images/Roof North");
+            this.RoofNorthEast = Content.Load<Texture2D>(@"images/Roof North East");
+            this.RoofWest = Content.Load<Texture2D>(@"images/Roof West");
+            this.BrownBlock = Content.Load<Texture2D>(@"images/Brown Block");
+            this.RoofEast = Content.Load<Texture2D>(@"images/Roof East");
+            this.RoofSouthWest = Content.Load<Texture2D>(@"images/Roof South West");
+            this.RoofSouth = Content.Load<Texture2D>(@"images/Roof South");
+            this.WindowTall = Content.Load<Texture2D>(@"images/Window Tall");
+            this.RoofSouthEast = Content.Load<Texture2D>(@"images/Roof South East");
+            this.WallBlockTall = Content.Load<Texture2D>(@"images/Wall Block Tall");
+            this.DoorTallClosed = Content.Load<Texture2D>(@"images/Door Tall Closed");
+            this.StoneBlock = Content.Load<Texture2D>(@"images/Stone Block");
+        }
+
         public void Update()
         {
         }
