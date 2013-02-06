@@ -24,6 +24,7 @@ namespace PlanetCute_ida
         Background background;
         Player player;
         Life life;
+        Map map = new Map();
 
         CharacterManager c;
 
@@ -60,13 +61,16 @@ namespace PlanetCute_ida
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
+            // Load map
+            map.loadMap(@"maps/map1.txt");
+
             //Background
-            background = new Background(Content);
+            background = new Background(Content, map);
 
             //Life
             life = new Life(Content.Load<Texture2D>(@"images/Heart"));
 
-            c = new CharacterManager(Content);
+            c = new CharacterManager(Content, map);
         }
 
         /// <summary>

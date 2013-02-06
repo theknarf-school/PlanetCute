@@ -15,8 +15,9 @@ namespace PlanetCute_ida
         int spawned = 0;
         Character[] c = new Character[10];
         Random r = new Random();
+        Map map;
 
-        public CharacterManager(ContentManager Content)
+        public CharacterManager(ContentManager Content, Map map)
         {
             charachterTiles[0] = new Tile(Content, @"images/Character Boy", 0);
             charachterTiles[1] = new Tile(Content, @"images/Character Cat Girl", 0);
@@ -24,19 +25,25 @@ namespace PlanetCute_ida
             charachterTiles[3] = new Tile(Content, @"images/Character Pink Girl", 0);
             charachterTiles[4] = new Tile(Content, @"images/Character Princess Girl", 0);
 
+            this.map = map;
+
             charachters--;
-            newC();
+            spawn();
         }
 
-        public void newC()
+        public void spawn()
         {
             if (charachters < 9)
             {
                 charachters++;
                 spawned++;
                 c[charachters] = new Character(charachterTiles);
-                c[charachters].y = charachterTiles[0].getSprite().Height * 2;
-                c[charachters].speed = spawned/5+1;
+                c[charachters].speed = spawned / 5 + 1;
+
+                int spoint = r.Next(map.numberOfSpawnpoints);
+
+                c[charachters].x = charachterTiles[0].getSprite().Width * map.getSpawnpoint(spoint).x;
+                c[charachters].y = charachterTiles[0].getSprite().Height / 2 * map.getSpawnpoint(spoint).y;
             }
         }
         
@@ -56,7 +63,7 @@ namespace PlanetCute_ida
                 c[i].Update();
 
             if (r.NextDouble() * 100 < 1.2)
-                newC();
+                spawn();
         }
 
         public void Draw(SpriteBatch spriteBatch)

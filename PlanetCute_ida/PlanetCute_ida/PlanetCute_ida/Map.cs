@@ -8,23 +8,25 @@ namespace PlanetCute_ida
 {
     class Map
     {
-        private int _width;
-        private int _height;
-        private int[,] _map;
+        public struct Position { public int x; public int y; }
+        
+        private int        _width;
+        private int        _height;
+        private int[,]     _map;
+        private Position[] _spawnpoints;
 
         public int width  { get { return this._width;  } }
         public int height { get { return this._height; } }
-
-        public Map(int width, int height)
-        {
-            this._width = width;
-            this._height = height;
-            this._map = new int[width, height];
-        }
+        public int numberOfSpawnpoints { get { return this._spawnpoints.Length; } }
 
         public int getTileID(int x, int y)
         {
             return this._map[x, y];
+        }
+
+        public Position getSpawnpoint(int p)
+        {
+            return this._spawnpoints[p];
         }
 
         public void loadMap(String filename)
@@ -53,39 +55,25 @@ namespace PlanetCute_ida
                             this._map[x, y] = int.Parse(bits2[y]);
                         }
                     }
+
+                    // Get number of spawnpoints
+                    int nSpawnPoints = int.Parse(reader.ReadLine());
+
+                    this._spawnpoints = new Position[nSpawnPoints];
+
+                    // Load in spawnpoints
+                    for (int i = 0; i < nSpawnPoints; i++)
+                    {
+                        string[] xy = reader.ReadLine().Split(' ');
+
+                        Position tmp = new Position();
+                        tmp.x = int.Parse(xy[0]);
+                        tmp.y = int.Parse(xy[1]);
+
+                        this._spawnpoints[i] = tmp;   
+                    }
                 }
             }
-        }
-
-        public void setUpStandardMap()
-        {
-            // Setting up the map
-            this._map[0, 0] = 0;
-            this._map[0, 1] = 3;
-            this._map[0, 2] = 6;
-            this._map[0, 3] = 10;
-            this._map[0, 4] = 12;
-
-            for (int i = 1; i < 5; i++)
-            {
-                this._map[i, 0] = 1;
-                this._map[i, 1] = 4;
-                this._map[i, 2] = 7;
-                this._map[i, 3] = 10;
-                this._map[i, 4] = 12;
-            }
-
-            this._map[5, 0] = 1;
-            this._map[5, 1] = 13;
-            this._map[5, 2] = 8;
-            this._map[5, 3] = 11;
-            this._map[5, 4] = 12;
-
-            this._map[6, 0] = 2;
-            this._map[6, 1] = 5;
-            this._map[6, 2] = 9;
-            this._map[6, 3] = 10;
-            this._map[6, 4] = 12;
         }
     }
 }

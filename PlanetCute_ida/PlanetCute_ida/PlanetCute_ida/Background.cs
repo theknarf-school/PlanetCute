@@ -12,9 +12,9 @@ namespace PlanetCute_ida
     class Background
     {
         Tile[] tSprites = new Tile[15];
-        Map mMap = new Map(7, 5);
+        Map mMap;
 
-        public Background(ContentManager Content)
+        public Background(ContentManager Content, Map map)
         {
             // Loading in sprites
             this.tSprites[0]  = new Tile(Content, @"images/Roof North West",    0);
@@ -33,8 +33,7 @@ namespace PlanetCute_ida
             this.tSprites[13] = new Tile(Content, @"images/Roof North",         -40);
             this.tSprites[14] = new Tile(Content, @"images/Grass Block",        50);
 
-            //mMap.setUpStandardMap();
-            mMap.loadMap(@"maps/map1.txt");
+            this.mMap = map;
         }
 
         public int transformY(int y)
