@@ -12,6 +12,7 @@ namespace PlanetCute_ida
     {
         Tile[] charachterTiles = new Tile[5];
         int charachters = 0;
+        int spawned = 0;
         Character[] c = new Character[10];
         Random r = new Random();
 
@@ -32,19 +33,29 @@ namespace PlanetCute_ida
             if (charachters < 9)
             {
                 charachters++;
+                spawned++;
                 c[charachters] = new Character(charachterTiles);
                 c[charachters].y = charachterTiles[0].getSprite().Height * 2;
-                c[charachters].speed = 1;
+                c[charachters].speed = spawned/5+1;
             }
         }
-
-
+        
         public void Update()
         {
-            for(int i = 0; i <= charachters; i++)
+            for (int i = 0; i <= charachters; i++)
+            {
+                if (c[i].x > 101 * 7)
+                {
+                    c[i] = c[charachters];
+                    charachters--;
+                    i--;
+                }
+            }
+
+            for (int i = 0; i <= charachters; i++)
                 c[i].Update();
 
-            if (r.NextDouble() * 100 < 1.5)
+            if (r.NextDouble() * 100 < 1.2)
                 newC();
         }
 
