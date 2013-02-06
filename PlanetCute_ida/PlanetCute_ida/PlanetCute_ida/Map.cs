@@ -31,17 +31,21 @@ namespace PlanetCute_ida
 
         private int[] readline(TextReader reader)
         {
-            string line = reader.ReadLine();
-            string[] bits = line.Split(' ');
-            
             List<int> values = new List<int>();
-            int result;
 
-            for (int i = 0; i < bits.Length; i++)
+            while (values.Count < 1)
             {
-                if (int.TryParse(bits[i], out result))
+                string line = reader.ReadLine();
+                string[] bits = line.Split(' ');
+
+                int result;
+
+                for (int i = 0; i < bits.Length; i++)
                 {
-                    values.Add(result);
+                    if (int.TryParse(bits[i], out result))
+                    {
+                        values.Add(result);
+                    }
                 }
             }
 
