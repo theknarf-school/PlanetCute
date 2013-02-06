@@ -24,6 +24,7 @@ namespace PlanetCute_ida
         Background background;
         Player player;
         Life life;
+        Tile[] charachterTiles = new Tile[5];
 
         public Game1()
         {
@@ -63,6 +64,14 @@ namespace PlanetCute_ida
 
             //Life
             life = new Life(Content.Load<Texture2D>(@"images/Heart"));
+
+            charachterTiles[0] = new Tile(Content, @"images/Character Boy",             0);
+            charachterTiles[1] = new Tile(Content, @"images/Character Cat Girl",        0);
+            charachterTiles[2] = new Tile(Content, @"images/Character Horn Girl",       0);
+            charachterTiles[3] = new Tile(Content, @"images/Character Pink Girl",       0);
+            charachterTiles[4] = new Tile(Content, @"images/Character Princess Girl",   0);
+
+
         }
 
         /// <summary>
