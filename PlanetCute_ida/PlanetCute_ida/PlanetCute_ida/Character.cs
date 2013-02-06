@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace PlanetCute_ida
@@ -27,7 +28,10 @@ namespace PlanetCute_ida
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            type.Draw(spriteBatch, this.x, this.y);
+            spriteBatch.Draw(   type.getSprite(),
+                                new Vector2(x,y),
+                                Color.White
+                            );
         }
     }
 }

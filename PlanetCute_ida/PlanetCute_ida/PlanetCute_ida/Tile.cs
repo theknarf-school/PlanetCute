@@ -28,5 +28,10 @@ namespace PlanetCute_ida
                                             ),
                                 Color.White);
         }
+
+        public Texture2D getSprite()
+        {
+            return this.sprite;
+        }
     }
 }
