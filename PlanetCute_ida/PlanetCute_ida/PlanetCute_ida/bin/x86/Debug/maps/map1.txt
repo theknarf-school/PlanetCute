@@ -1,4 +1,7 @@
 This is the map file
+--------------------
+Level: The first
+Comment: only int data is parsed from the map file
 
 Copyright
 ---------
@@ -22,7 +25,7 @@ Character spawn points: 2
 0 4
 0 5
 
-Bug spawn points: 5
+Bug spawn points: 5 -- TODO: this has yet to be implemented
 1 1
 1 2
 1 3
