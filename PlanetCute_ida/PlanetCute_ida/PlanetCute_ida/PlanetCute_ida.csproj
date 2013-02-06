@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PlanetCute_ida</RootNamespace>
-    <AssemblyName>PlanetCute_ida</AssemblyName>
+    <AssemblyName>Planet Cute</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
@@ -16,7 +16,7 @@
     <XnaProfile>Reach</XnaProfile>
     <XnaCrossPlatformGroupID>c5a0c60c-7b5e-449a-88c3-85b0c772209d</XnaCrossPlatformGroupID>
     <XnaOutputType>Game</XnaOutputType>
-    <ApplicationIcon>Game.ico</ApplicationIcon>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
     <Thumbnail>GameThumbnail.png</Thumbnail>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -84,10 +84,10 @@
     <Compile Include="Tile.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>
+    <Content Include="icon.ico" />
     <EmbeddedResource Include="maps\map1.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

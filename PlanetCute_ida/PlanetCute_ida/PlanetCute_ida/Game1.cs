@@ -35,7 +35,6 @@ namespace PlanetCute_ida
 
             graphics.PreferredBackBufferHeight = 600;
             graphics.PreferredBackBufferWidth = 101 * 7;
-
         }
 
         /// <summary>
@@ -46,9 +45,9 @@ namespace PlanetCute_ida
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
             player = new Player();
             this.IsMouseVisible = true;
+            this.Window.Title = "Planet Cute - Level 1";
             base.Initialize();
         }
 
