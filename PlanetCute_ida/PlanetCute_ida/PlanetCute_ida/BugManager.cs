@@ -47,8 +47,6 @@ namespace PlanetCute_ida
                     b[bugs].x = enemy.getSprite().Width * map.getBugSpawnpoint(spoint).x;
                     b[bugs].y = enemy.getSprite().Height / 2 * map.getBugSpawnpoint(spoint).y;
                 }
-                if (bugs == 2)
-                    bugs-=2;
             }
         }
 
@@ -60,7 +58,6 @@ namespace PlanetCute_ida
             {
                 bugs--;
                 spawn();
-
                 nextSpawn = 0;
             }
         }
