@@ -19,6 +19,15 @@ namespace PlanetCute_ida
         public int height { get { return this._height; } }
         public int numberOfSpawnpoints { get { return this._spawnpoints.Length; } }
 
+        //Bugs
+        private Position[] _spawnPointsBug;
+        public int numberOfSpawnPointsBug { get { return this._spawnPointsBug.Length; } }
+
+        public Position getSpawnPointBug(int p)
+        {
+            return this._spawnPointsBug[p];
+        }
+
         public int getTileID(int x, int y)
         {
             return this._map[x, y];
@@ -61,7 +70,7 @@ namespace PlanetCute_ida
                     // Get map size
                     int[] mapSize = readline(reader);
 
-                    this._width  = mapSize[0];
+                    this._width = mapSize[0];
                     this._height = mapSize[1];
 
                     this._map = new int[this._width, this._height];
@@ -86,6 +95,17 @@ namespace PlanetCute_ida
                     {
                         int[] xy = readline(reader);
                         this._spawnpoints[i] = new Position(xy[0], xy[1]);
+                    }
+
+                    //Get number of spawnpoints for bug
+                    int nSpawnPointsBug = readline(reader)[0];
+                    this._spawnPointsBug = new Position[nSpawnPointsBug];
+
+                    // Load in spawnpoints for bug
+                    for (int i = 0; i < nSpawnPointsBug; i++)
+                    {
+                        int[] xy = readline(reader);
+                        this._spawnPointsBug[i] = new Position(xy[0], xy[1]);
                     }
                 }
             }

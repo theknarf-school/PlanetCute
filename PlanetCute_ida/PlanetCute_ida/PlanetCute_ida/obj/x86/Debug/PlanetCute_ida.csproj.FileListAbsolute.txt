@@ -55,11 +55,7 @@ C:\Users\Ida Merete\Documents\Visual Studio 2010\Projects\PlanetCute_ida\PlanetC
 C:\Users\Ida Merete\Documents\Visual Studio 2010\Projects\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\Water Block.xnb
 C:\Users\Ida Merete\Documents\Visual Studio 2010\Projects\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\Window Tall.xnb
 C:\Users\Ida Merete\Documents\Visual Studio 2010\Projects\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\Wood Block.xnb
-C:\Users\Ida Merete\Documents\Visual Studio 2010\Projects\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\PlanetCute_ida.exe
-C:\Users\Ida Merete\Documents\Visual Studio 2010\Projects\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\PlanetCute_ida.pdb
 C:\Users\Ida Merete\Documents\Visual Studio 2010\Projects\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Ida Merete\Documents\Visual Studio 2010\Projects\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\obj\x86\Debug\PlanetCute_ida.exe
-C:\Users\Ida Merete\Documents\Visual Studio 2010\Projects\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\obj\x86\Debug\PlanetCute_ida.pdb
 C:\Users\Ida Merete\Documents\Visual Studio 2010\Projects\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\obj\x86\Debug\PlanetCute_ida.csprojResolveAssemblyReference.cache
 C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\Brown Block.xnb
 C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\Character Boy.xnb
@@ -125,3 +121,8 @@ C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\Pl
 C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Planet Cute.pdb
 C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\obj\x86\Debug\Planet Cute.exe
 C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\obj\x86\Debug\Planet Cute.pdb
+C:\Users\Ida Merete\Documents\Visual Studio 2010\Projects\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\maps\map1.txt
+C:\Users\Ida Merete\Documents\Visual Studio 2010\Projects\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Planet Cute.exe
+C:\Users\Ida Merete\Documents\Visual Studio 2010\Projects\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Planet Cute.pdb
+C:\Users\Ida Merete\Documents\Visual Studio 2010\Projects\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\obj\x86\Debug\Planet Cute.exe
+C:\Users\Ida Merete\Documents\Visual Studio 2010\Projects\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\obj\x86\Debug\Planet Cute.pdb

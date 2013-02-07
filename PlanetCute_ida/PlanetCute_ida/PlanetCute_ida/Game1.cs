@@ -26,8 +26,6 @@ namespace PlanetCute_ida
         Life life;
         Map map = new Map();
 
-        CharacterManager c;
-
         //Game data
         List<GameObject> gameobjects = new List<GameObject>();
 
@@ -73,11 +71,13 @@ namespace PlanetCute_ida
             life = new Life(Content.Load<Texture2D>(@"images/Heart"));
             life.numberOfLifes = 5;
 
-            c = new CharacterManager(Content, map);
+            CharacterManager character = new CharacterManager(Content, map);
+            BugManager bugs = new BugManager(Content, map);
 
             gameobjects.Add(life);
             gameobjects.Add(background);
-            gameobjects.Add(c);
+            gameobjects.Add(character);
+            gameobjects.Add(bugs);
         }
 
         /// <summary>
