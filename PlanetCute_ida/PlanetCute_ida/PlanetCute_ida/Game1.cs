@@ -68,16 +68,17 @@ namespace PlanetCute_ida
             background = new Background(Content, map);
 
             //Life
-            life = new Life(Content.Load<Texture2D>(@"images/Heart"));
+            life = new Life(Content.Load<Texture2D>(@"images/Heart"), 
+                            Content.Load<Texture2D>(@"images/Rock"));
             life.numberOfLifes = 5;
 
-            CharacterManager character = new CharacterManager(Content, map);
+            CharacterManager character = new CharacterManager(Content, map, life);
             BugManager bugs = new BugManager(Content, map);
 
-            gameobjects.Add(life);
             gameobjects.Add(background);
             gameobjects.Add(character);
             gameobjects.Add(bugs);
+            gameobjects.Add(life);
         }
 
         /// <summary>
@@ -105,7 +106,7 @@ namespace PlanetCute_ida
 
             foreach (GameObject go in gameobjects)
             {
-                go.Update();
+                go.Update(gameTime);
             }
 
             base.Update(gameTime);

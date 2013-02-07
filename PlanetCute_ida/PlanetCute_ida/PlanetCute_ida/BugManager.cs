@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace PlanetCute_ida 
+namespace PlanetCute_ida
 {
     class BugManager : GameObject
     {
@@ -14,6 +14,8 @@ namespace PlanetCute_ida
         Bug[] bugs = new Bug[4];
         Random random = new Random();
         Map map;
+        int numberOfSpawnedBugs;
+        int nextSpawnTime = 0;
 
         public BugManager(ContentManager Content, Map map)
         {
@@ -24,29 +26,31 @@ namespace PlanetCute_ida
 
         public void spawn()
         {
-            bugs[0] = new Bug(bugTiles);
+            bugs[numberOfSpawnedBugs] = new Bug(bugTiles);
 
             int spoint = random.Next(map.numberOfSpawnPointsBug);
 
-            if (map.getSpawnPointBug(spoint).x == 5)
+            if (spoint == 4)
             {
-                bugs[0].x = bugTiles.getSprite().Width * map.getSpawnPointBug(spoint).x + 30;
-                bugs[0].y = bugTiles.getSprite().Height / 2 * map.getSpawnPointBug(spoint).y;
+                bugs[numberOfSpawnedBugs].x = bugTiles.getSprite().Width * map.getSpawnPointBug(spoint).x + 30;
+                bugs[numberOfSpawnedBugs].y = bugTiles.getSprite().Height / 2 * map.getSpawnPointBug(spoint).y;
             }
             else
             {
-                bugs[0].x = bugTiles.getSprite().Width * map.getSpawnPointBug(spoint).x + 30;
-                bugs[0].y = bugTiles.getSprite().Height / 2 * map.getSpawnPointBug(spoint).y + 30;
+                bugs[numberOfSpawnedBugs].x = bugTiles.getSprite().Width * map.getSpawnPointBug(spoint).x + 30;
+                bugs[numberOfSpawnedBugs].y = bugTiles.getSprite().Height / 2 * map.getSpawnPointBug(spoint).y + 30;
             }
         }
-        
-        public void Update()
+
+        public void Update(GameTime gameTime)
         {
-            if (random.Next(60) == 0)
+            nextSpawnTime += 1;
+            if (nextSpawnTime == 300)
             {
                 spawn();
+                numberOfSpawnedBugs++;
+                nextSpawnTime = 0;
             }
-
         }
 
         public void Draw(SpriteBatch spriteBatch)
