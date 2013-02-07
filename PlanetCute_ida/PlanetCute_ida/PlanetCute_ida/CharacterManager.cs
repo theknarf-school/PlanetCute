@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace PlanetCute_ida
 {
-    class CharacterManager
+    class CharacterManager : GameObject
     {
         Tile[] charachterTiles = new Tile[5];
         int charachters = 0;

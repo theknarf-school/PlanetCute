@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace PlanetCute_ida
 {
-    class Life
+    class Life : GameObject
     {
         Texture2D heart;
         

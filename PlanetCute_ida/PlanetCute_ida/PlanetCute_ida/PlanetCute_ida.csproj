@@ -75,6 +75,7 @@
     <Compile Include="Background.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="CharacterManager.cs" />
+    <Compile Include="GameObject.cs" />
     <Compile Include="Life.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Player.cs" />

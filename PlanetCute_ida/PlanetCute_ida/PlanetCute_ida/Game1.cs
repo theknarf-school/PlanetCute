@@ -28,6 +28,9 @@ namespace PlanetCute_ida
 
         CharacterManager c;
 
+        //Game data
+        List<GameObject> gameobjects = new List<GameObject>();
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -71,6 +74,10 @@ namespace PlanetCute_ida
             life.numberOfLifes = 5;
 
             c = new CharacterManager(Content, map);
+
+            gameobjects.Add(life);
+            gameobjects.Add(background);
+            gameobjects.Add(c);
         }
 
         /// <summary>
@@ -96,12 +103,10 @@ namespace PlanetCute_ida
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
-            //double t = gameTime.TotalGameTime.Milliseconds/100;
-            //this.life.rotate = (Math.Sin(t) + 1) / 4 + 0.5;
-
-            // TODO: Add your update logic here
-
-            c.Update();
+            foreach (GameObject go in gameobjects)
+            {
+                go.Update();
+            }
 
             base.Update(gameTime);
         }
@@ -113,15 +118,14 @@ namespace PlanetCute_ida
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.LightBlue);
-
             spriteBatch.Begin();
             
-            background.Draw(spriteBatch);
-            life.Draw(spriteBatch);
-            c.Draw(spriteBatch);
+            foreach (GameObject go in gameobjects)
+            {
+                go.Draw(spriteBatch);
+            }
 
             spriteBatch.End();
-
             base.Draw(gameTime);
         }
     }

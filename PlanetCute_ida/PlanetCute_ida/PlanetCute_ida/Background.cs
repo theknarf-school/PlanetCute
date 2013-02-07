@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace PlanetCute_ida
 {
-    class Background
+    class Background : GameObject
     {
         Tile[] tSprites = new Tile[15];
         Map mMap;
@@ -44,6 +44,10 @@ namespace PlanetCute_ida
                 return y;
             }
             else return arr[y];
+        }
+
+        public void Update()
+        {
         }
 
         public void Draw(SpriteBatch spriteBatch)
