@@ -12,7 +12,7 @@ namespace PlanetCute_ida
     {
         Map map;
         Random r = new Random();
-        Bug[] b = new Bug[3];
+        Bug[] b = new Bug[4];
         int spawned = 0;
         int bugs = 0;
         Tile enemy;
@@ -20,8 +20,7 @@ namespace PlanetCute_ida
         public BugManager(ContentManager Content, Map map)
         {
             enemy = new Tile(Content, @"images/Enemy Bug", -20);
-            this.map = map;
-            bugs--;
+            this.map = map;       
             spawn();
         }
 
@@ -32,18 +31,29 @@ namespace PlanetCute_ida
             {
                 bugs++;
 
-                b[bugs] = new Bug(enemy);
 
                 int spoint = r.Next(map.numberOfBugspawnpoints);
-
-                b[bugs].x = enemy.getSprite().Width * map.getBugSpawnpoint(spoint).x;
-                b[bugs].y = enemy.getSprite().Height / 2 * map.getBugSpawnpoint(spoint).y;
+                b[spoint] = new Bug(enemy);
+                if (b[spoint] == null)
+                {
+                    if (spoint == 4)
+                    {
+                        b[bugs].x = enemy.getSprite().Width * map.getBugSpawnpoint(spoint).x;
+                        b[bugs].y = enemy.getSprite().Height / 2 * map.getBugSpawnpoint(spoint).y - 50;
+                    }
+                    else
+                    {
+                        b[bugs].x = enemy.getSprite().Width * map.getBugSpawnpoint(spoint).x;
+                        b[bugs].y = enemy.getSprite().Height / 2 * map.getBugSpawnpoint(spoint).y;
+                    }
+                }
             }
         }
 
         public void Update()
         {
-
+            if (r.NextDouble() * 100 < 1.2)
+                spawn();
         }
 
         public void Draw(SpriteBatch spriteBatch)
