@@ -13,6 +13,8 @@ namespace PlanetCute_ida
         Texture2D sprite;
         int offsetX;
 
+        public int offset { get { return offsetX; } }
+
         public Tile(ContentManager Content, String name, int offset)
         {
             this.sprite = Content.Load<Texture2D>(name);
