@@ -19,14 +19,6 @@ namespace PlanetCute_ida
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        
-        //Game World
-        Background background;
-        Player player;
-        Life life;
-        Map map = new Map();
-
-        CharacterManager c;
 
         //Game data
         List<GameObject> gameobjects = new List<GameObject>();
@@ -48,7 +40,6 @@ namespace PlanetCute_ida
         /// </summary>
         protected override void Initialize()
         {
-            player = new Player();
             this.IsMouseVisible = true;
             this.Window.Title = "Planet Cute - Level 1";
             base.Initialize();
@@ -60,6 +51,12 @@ namespace PlanetCute_ida
         /// </summary>
         protected override void LoadContent()
         {
+            Life life;
+            Map map = new Map();
+            CharacterManager c;
+            Background background;
+            Player player;
+
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
@@ -75,9 +72,12 @@ namespace PlanetCute_ida
 
             c = new CharacterManager(Content, map);
 
+            player = new Player();
+
             gameobjects.Add(life);
             gameobjects.Add(background);
             gameobjects.Add(c);
+            gameobjects.Add(player);
         }
 
         /// <summary>

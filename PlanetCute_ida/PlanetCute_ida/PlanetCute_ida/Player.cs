@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace PlanetCute_ida
 {
-    class Player
+    class Player : GameObject
     {
         MouseState prevMouseState;
         Rectangle collisionMouse;
@@ -23,6 +23,11 @@ namespace PlanetCute_ida
                 collisionMouse = new Rectangle(mouseState.X-size/2, mouseState.Y-size/2, size/2, size/2);
             prevMouseState = mouseState;
 
+        }
+
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
         }
     }
 }
