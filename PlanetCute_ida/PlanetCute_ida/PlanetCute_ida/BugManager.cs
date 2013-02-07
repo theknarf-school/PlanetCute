@@ -13,14 +13,16 @@ namespace PlanetCute_ida
         Map map;
         Random r = new Random();
         Bug[] b = new Bug[4];
-        int spawned = 0;
         int bugs = 0;
         Tile enemy;
+        int spoint;
+        int nextSpawn = 0;
 
         public BugManager(ContentManager Content, Map map)
         {
             enemy = new Tile(Content, @"images/Enemy Bug", -20);
-            this.map = map;       
+            this.map = map;
+            bugs--;
             spawn();
         }
 
@@ -31,29 +33,36 @@ namespace PlanetCute_ida
             {
                 bugs++;
 
+                b[bugs] = new Bug(enemy);
+                spoint = r.Next(map.numberOfBugspawnpoints);
 
-                int spoint = r.Next(map.numberOfBugspawnpoints);
-                b[spoint] = new Bug(enemy);
-                if (b[spoint] == null)
+
+                if (spoint == 4)
                 {
-                    if (spoint == 4)
-                    {
-                        b[bugs].x = enemy.getSprite().Width * map.getBugSpawnpoint(spoint).x;
-                        b[bugs].y = enemy.getSprite().Height / 2 * map.getBugSpawnpoint(spoint).y - 50;
-                    }
-                    else
-                    {
-                        b[bugs].x = enemy.getSprite().Width * map.getBugSpawnpoint(spoint).x;
-                        b[bugs].y = enemy.getSprite().Height / 2 * map.getBugSpawnpoint(spoint).y;
-                    }
+                    b[bugs].x = enemy.getSprite().Width * map.getBugSpawnpoint(spoint).x;
+                    b[bugs].y = enemy.getSprite().Height / 2 * map.getBugSpawnpoint(spoint).y - 50;
                 }
+                else
+                {
+                    b[bugs].x = enemy.getSprite().Width * map.getBugSpawnpoint(spoint).x;
+                    b[bugs].y = enemy.getSprite().Height / 2 * map.getBugSpawnpoint(spoint).y;
+                }
+                if (bugs == 2)
+                    bugs-=2;
             }
         }
 
+
         public void Update()
         {
-            if (r.NextDouble() * 100 < 1.2)
+            nextSpawn += 1;
+            if (nextSpawn == 150)
+            {
+                bugs--;
                 spawn();
+
+                nextSpawn = 0;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
