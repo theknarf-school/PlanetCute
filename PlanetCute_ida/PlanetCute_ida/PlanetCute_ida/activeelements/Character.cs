@@ -17,13 +17,5 @@ namespace PlanetCute_ida
         {
             this.x += speed;
         }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(   type.getSprite(),
-                                new Vector2(x,y),
-                                Color.White
-                            );
-        }
     }
 }
