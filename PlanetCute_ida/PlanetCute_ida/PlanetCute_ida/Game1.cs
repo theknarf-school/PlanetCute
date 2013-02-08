@@ -80,7 +80,7 @@ namespace PlanetCute_ida
             // Load map
             map.loadMap(@"maps/" + mapPath + ".txt");
 
-            ss = new StatusScreen(Content, graphics);
+            ss = new StatusScreen(Content, graphics, allMaps.Count==0);
 
             //Background
             background = new Background(Content, map);
