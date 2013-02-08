@@ -7,6 +7,9 @@ using Microsoft.Xna.Framework;
 
 namespace PlanetCute_ida
 {
+    /// <summary>
+    /// An object having Update and Draw methods
+    /// </summary>
     interface GameObject
     {
         void Update(GameTime gameTime);

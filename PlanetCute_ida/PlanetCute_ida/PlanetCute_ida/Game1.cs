@@ -86,9 +86,7 @@ namespace PlanetCute_ida
             background = new Background(Content, map);
 
             //Life
-            life = new Life(Content.Load<Texture2D>(@"images/Heart"),
-                            Content.Load<Texture2D>(@"images/Game Over"),
-                            ss);
+            life = new Life(Content.Load<Texture2D>(@"images/Heart"), ss);
             life.life = 5;
 
             //Gems

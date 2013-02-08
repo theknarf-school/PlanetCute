@@ -13,17 +13,14 @@ namespace PlanetCute_ida
     /// </summary>
     class Life : ActiveElements
     {
-        Tile gameover;
-
         private bool gotHit = false;
         private double timeGotHit = 0;
         public double hitAnimationLength = 2 * Math.PI * 100;
         public float tmpRotat = 0;
         private StatusScreen ss;
 
-        public Life(Texture2D heart, Texture2D gameover, StatusScreen ss) : base(new Tile(heart, 0))
+        public Life(Texture2D heart, StatusScreen ss) : base(new Tile(heart, 0))
         {
-            this.gameover = new Tile(gameover, 0);
             this.size = 0.5f;
             this.moveBasedOnSize = false;
             this.rotateVec = new Vector2(type.getSprite().Width / 2, type.getSprite().Height / 2);
@@ -32,6 +29,7 @@ namespace PlanetCute_ida
 
         public override void Update(GameTime gameTime)
         {
+            // Hit animation
             if (this.gotHit)
             {
                 double totalMilli = gameTime.TotalGameTime.TotalMilliseconds;
@@ -46,6 +44,7 @@ namespace PlanetCute_ida
                 }
             }
 
+            // Shows you have lost
             if (this.life <= 0) this.ss.GameOver = true;
 
             base.Update(gameTime);
@@ -53,6 +52,7 @@ namespace PlanetCute_ida
 
         public override void looseLife()
         {
+            // Removes a life if you still are playing
             if (this.ss.Playing)
             {
                 if (!this.gotHit)
@@ -65,6 +65,11 @@ namespace PlanetCute_ida
             }
         }
 
+        /// <summary>
+        /// Draws the life
+        /// </summary>
+        /// <param name="spriteBatch"></param>
+        /// <param name="gameTime"></param>
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             for (int i = 0; i < life; i++)

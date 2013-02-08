@@ -6,6 +6,9 @@ using System.IO;
 
 namespace PlanetCute_ida
 {
+    /// <summary>
+    /// A map class to load in some info from a mapfile
+    /// </summary>
     class Map
     {
         public struct Position { public Position(int x, int y) { this.x = x; this.y = y; } public int x; public int y; }
@@ -36,6 +39,11 @@ namespace PlanetCute_ida
             return this._bugspawnpoints[p];
         }
 
+        /// <summary>
+        /// Reads a line from the given TextReader
+        /// </summary>
+        /// <param name="reader">the filestream/textreader to read from</param>
+        /// <returns>an array of ints found on that line</returns>
         private int[] readline(TextReader reader)
         {
             List<int> values = new List<int>();
@@ -59,6 +67,10 @@ namespace PlanetCute_ida
             return values.ToArray();
         }
 
+        /// <summary>
+        /// Fills this class with values based on a given file
+        /// </summary>
+        /// <param name="filename">The filename to load data from</param>
         public void loadMap(String filename)
         {
             if (File.Exists(filename))
