@@ -33,7 +33,7 @@ namespace PlanetCute_ida
                 b[spoint] = new Bug(enemy);
                 b[spoint].lifeTime = 10000;
                 b[spoint].spawnTime = gameTimeMillisec;
-                b[spoint].life = 20;
+                b[spoint].life = 2;
 
                 b[spoint].x = enemy.getSprite().Width * map.getBugSpawnpoint(spoint).x;
 

@@ -12,7 +12,7 @@ namespace PlanetCute_ida
     {
         private MouseState prevMouseState;
         private Rectangle collisionMouse;
-        private const int size = 5;
+        private const int size = 10;
         private Clickmanager cm;
 
         public Player(Clickmanager cm)

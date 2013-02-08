@@ -7,24 +7,11 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace PlanetCute_ida
 {
-    class Character
+    class Character : ActiveElements
     {
-        private Tile type;
-        
         public int speed {get; set;}
-        public int x { get; set; }
-        public int y { get; set; }
 
-        public Character(Tile[] sprites)
-        {
-            Random r = new Random();
-            type = sprites[r.Next(sprites.Length)];
-        }
-
-        public Rectangle GetCollitionBox()
-        {
-            return new Rectangle(x, y, type.getSprite().Width, type.getSprite().Width);
-        }
+        public Character(Tile type) : base(type) { }
 
         public void Update()
         {

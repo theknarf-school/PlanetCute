@@ -39,7 +39,11 @@ namespace PlanetCute_ida
             {
                 charachters++;
                 spawned++;
-                c[charachters] = new Character(charachterTiles);
+
+                Random r = new Random();
+                Tile type = charachterTiles[r.Next(charachterTiles.Length)];
+
+                c[charachters] = new Character(type);
                 c[charachters].speed = spawned / 5 + 1;
 
                 int spoint = r.Next(map.numberOfSpawnpoints);

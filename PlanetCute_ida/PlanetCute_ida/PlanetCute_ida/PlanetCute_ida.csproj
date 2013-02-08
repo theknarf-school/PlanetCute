@@ -72,10 +72,11 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="activeelements\ActiveElements.cs" />
     <Compile Include="gameobjects\Background.cs" />
-    <Compile Include="gameobjects\Bug.cs" />
+    <Compile Include="activeelements\Bug.cs" />
     <Compile Include="gameobjects\BugManager.cs" />
-    <Compile Include="gameobjects\Character.cs" />
+    <Compile Include="activeelements\Character.cs" />
     <Compile Include="gameobjects\CharacterManager.cs" />
     <Compile Include="generalobjects\Clickmanager.cs" />
     <Compile Include="interfaces\Clickable.cs" />
