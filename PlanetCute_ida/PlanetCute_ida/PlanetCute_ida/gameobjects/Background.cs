@@ -50,7 +50,7 @@ namespace PlanetCute_ida
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             for (int x = 0; x < this.mMap.width; x++)
             {

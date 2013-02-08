@@ -72,11 +72,11 @@ namespace PlanetCute_ida
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             for (int i = 0; i < b.Length; i++)
                 if(b[i] != null)
-                    b[i].Draw(spriteBatch);
+                    b[i].Draw(spriteBatch, gameTime);
         }
 
         private void remove(int i)

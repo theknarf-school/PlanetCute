@@ -72,7 +72,7 @@ namespace PlanetCute_ida
             life = new Life(Content.Load<Texture2D>(@"images/Heart"), 
                             Content.Load<Texture2D>(@"images/Game Over"),
                             graphics);
-            life.numberOfLifes = 5;
+            life.life = 5;
             
             c = new CharacterManager(Content, map, life);
             b = new BugManager(Content, map);
@@ -130,7 +130,7 @@ namespace PlanetCute_ida
 
             foreach (GameObject go in gameobjects)
             {
-                go.Draw(spriteBatch);
+                go.Draw(spriteBatch, gameTime);
             }
 
             spriteBatch.End();

@@ -10,6 +10,6 @@ namespace PlanetCute_ida
     interface GameObject
     {
         void Update(GameTime gameTime);
-        void Draw(SpriteBatch spriteBatch);
+        void Draw(SpriteBatch spriteBatch, GameTime gameTime);
     }
 }

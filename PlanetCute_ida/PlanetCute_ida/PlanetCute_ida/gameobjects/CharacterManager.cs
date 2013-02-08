@@ -61,7 +61,7 @@ namespace PlanetCute_ida
                 {
                     Delete(i);
                     i--;
-                    life.numberOfLifes--;
+                    life.looseLife();
                 }
             }
 
@@ -78,10 +78,10 @@ namespace PlanetCute_ida
             charachters--;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             for(int i = 0; i <= charachters; i++)
-                c[i].Draw(spriteBatch);
+                c[i].Draw(spriteBatch, gameTime);
         }
 
         public void Click(Rectangle mouse)

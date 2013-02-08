@@ -16,6 +16,7 @@ namespace PlanetCute_ida
         public float size = 1f;
         public float rotate = 0f;
         public bool moveBasedOnSize = true;
+        public Vector2 rotateVec = Vector2.Zero;
 
         public ActiveElements(Tile type) 
         {
@@ -26,14 +27,15 @@ namespace PlanetCute_ida
         {
         }
 
-        public virtual void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Draw(type.getSprite(),
+            spriteBatch.Draw(   
+                                type.getSprite(),
                                 new Vector2(
-                                            x + ((1 - size) * type.getSprite().Width) / 2 * (moveBasedOnSize?1:0),
-                                            y + type.offset + ((1 - size) * type.getSprite().Height) / 2 * (moveBasedOnSize?1:0)
+                                            x + ((1 - size) * type.getSprite().Width) / 2 * (moveBasedOnSize?1:0) + rotateVec.X/2,
+                                            y + type.offset + ((1 - size) * type.getSprite().Height) / 2 * (moveBasedOnSize?1:0) + rotateVec.Y/2
                                             ),
-                                null, Color.White, rotate, Vector2.Zero, size, SpriteEffects.None, 0
+                                null, Color.White, rotate, rotateVec, size, SpriteEffects.None, 0
                             );
         }
 
@@ -45,7 +47,7 @@ namespace PlanetCute_ida
                                  type.getSprite().Width);
         }
 
-        public void looseLife()
+        public virtual void looseLife()
         {
             this.life--;
         }

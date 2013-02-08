@@ -39,7 +39,7 @@ namespace PlanetCute_ida
             cm.Click(mouse);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
         }
     }
