@@ -12,7 +12,7 @@ namespace PlanetCute_ida
     {
         private MouseState prevMouseState;
         private Rectangle collisionMouse;
-        private const int size = 10;
+        private const int size = 5;
         private Clickmanager cm;
 
         public Player(Clickmanager cm)
@@ -26,7 +26,7 @@ namespace PlanetCute_ida
 
             if (mouseState.X != prevMouseState.X ||
                 mouseState.Y != prevMouseState.Y)
-                collisionMouse = new Rectangle(mouseState.X-size/2, mouseState.Y-size/2, size/2, size/2);
+                collisionMouse = new Rectangle(mouseState.X, mouseState.Y, size, size);
 
             if (mouseState.LeftButton == ButtonState.Released && prevMouseState.LeftButton == ButtonState.Pressed)
                 Click(collisionMouse);

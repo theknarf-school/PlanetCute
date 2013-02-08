@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace PlanetCute_ida
 {
-    class Bug : GameObject
+    class Bug : GameObject, Clickable
     {
         private Tile bug;
         public int x;
@@ -16,10 +16,16 @@ namespace PlanetCute_ida
         public int spawnTime;
         public int lifeTime;
         public float size = 0.5f;
+        public int life;
 
         public Bug(Tile bug) 
         {
             this.bug = bug;
+        }
+
+        public Rectangle GetCollitionBox()
+        {
+            return new Rectangle(x, y, bug.getSprite().Width, bug.getSprite().Width);
         }
 
         public virtual void Update(GameTime gameTime)
@@ -36,6 +42,17 @@ namespace PlanetCute_ida
                                             ),
                                 null, Color.White, 0, Vector2.Zero, size, SpriteEffects.None, 0
                             );
+        }
+
+        public void Click(Rectangle mouse)
+        {
+            if(mouse.Intersects(GetCollitionBox()))
+                looseLife();
+        }
+
+        void looseLife()
+        {
+            this.life--;
         }
     }
 }

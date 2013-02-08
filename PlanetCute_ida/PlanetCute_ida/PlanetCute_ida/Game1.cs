@@ -78,6 +78,7 @@ namespace PlanetCute_ida
             b = new BugManager(Content, map);
 
             clickmanager.Add(c);
+            clickmanager.Add(b);
             player = new Player(clickmanager);
 
             gameobjects.Add(background);

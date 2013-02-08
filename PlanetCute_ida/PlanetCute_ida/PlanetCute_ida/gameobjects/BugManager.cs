@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace PlanetCute_ida
 {
-    class BugManager : GameObject
+    class BugManager : GameObject, Clickable
     {
         Map map;
         Random r = new Random();
@@ -33,6 +33,7 @@ namespace PlanetCute_ida
                 b[spoint] = new Bug(enemy);
                 b[spoint].lifeTime = 10000;
                 b[spoint].spawnTime = gameTimeMillisec;
+                b[spoint].life = 20;
 
                 b[spoint].x = enemy.getSprite().Width * map.getBugSpawnpoint(spoint).x;
 
@@ -78,5 +79,20 @@ namespace PlanetCute_ida
                     b[i].Draw(spriteBatch);
         }
 
+        private void remove(int i)
+        {
+            b[i] = null;
+        }
+
+        public void Click(Rectangle mouse)
+        {
+            for (int i = 0; i < b.Length; i++)
+                if (b[i] != null)
+                {
+                    b[i].Click(mouse);
+                    if (b[i].life <= 0)
+                        remove(i);
+                }
+        }
     }
 }
