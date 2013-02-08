@@ -21,6 +21,12 @@ namespace PlanetCute_ida
             this.offsetX = offset;
         }
 
+        public Tile(Texture2D sprite, int offset)
+        {
+            this.sprite = sprite;
+            this.offsetX = offset;
+        }
+
         public void Draw(SpriteBatch spriteBatch, int x, int y)
         {
             spriteBatch.Draw(   sprite,

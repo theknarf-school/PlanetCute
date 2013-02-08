@@ -14,25 +14,26 @@ namespace PlanetCute_ida
         public int y;
         public int life = 1;
         public float size = 1f;
+        public float rotate = 0f;
+        public bool moveBasedOnSize = true;
 
         public ActiveElements(Tile type) 
         {
             this.type = type;
         }
 
-
         public virtual void Update(GameTime gameTime)
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(type.getSprite(),
                                 new Vector2(
-                                            x + ((1 - size) * type.getSprite().Width) / 2,
-                                            y + type.offset + ((1 - size) * type.getSprite().Height) / 2
+                                            x + ((1 - size) * type.getSprite().Width) / 2 * (moveBasedOnSize?1:0),
+                                            y + type.offset + ((1 - size) * type.getSprite().Height) / 2 * (moveBasedOnSize?1:0)
                                             ),
-                                null, Color.White, 0, Vector2.Zero, size, SpriteEffects.None, 0
+                                null, Color.White, rotate, Vector2.Zero, size, SpriteEffects.None, 0
                             );
         }
 

@@ -81,7 +81,7 @@
     <Compile Include="generalobjects\Clickmanager.cs" />
     <Compile Include="interfaces\Clickable.cs" />
     <Compile Include="interfaces\GameObject.cs" />
-    <Compile Include="gameobjects\Life.cs" />
+    <Compile Include="generalobjects\Life.cs" />
     <Compile Include="generalobjects\Map.cs" />
     <Compile Include="gameobjects\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
