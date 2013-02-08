@@ -85,9 +85,10 @@ namespace PlanetCute_ida
             for (int i = 0; i <= charachters; i++)
             {
                 if (c[i].GetCollitionBox().Intersects(mouse))
+                {
                     Delete(i);
-
-                i--;
+                    return;
+                }
             }
         }
     }
