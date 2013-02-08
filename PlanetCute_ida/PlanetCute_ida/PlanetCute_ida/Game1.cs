@@ -25,8 +25,7 @@ namespace PlanetCute_ida
         Clickmanager clickmanager = new Clickmanager();
 
         StatusScreen ss;
-        Life life;
-
+        
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -61,6 +60,7 @@ namespace PlanetCute_ida
             Player player;
             BugManager b;
             Gems gems;
+            Life life;
 
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
