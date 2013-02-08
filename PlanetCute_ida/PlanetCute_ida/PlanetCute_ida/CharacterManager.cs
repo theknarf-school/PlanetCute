@@ -16,8 +16,9 @@ namespace PlanetCute_ida
         Character[] c = new Character[10];
         Random r = new Random();
         Map map;
+        Life life;
 
-        public CharacterManager(ContentManager Content, Map map)
+        public CharacterManager(ContentManager Content, Map map, Life life)
         {
             charachterTiles[0] = new Tile(Content, @"images/Character Boy", 0);
             charachterTiles[1] = new Tile(Content, @"images/Character Cat Girl", 0);
@@ -26,6 +27,7 @@ namespace PlanetCute_ida
             charachterTiles[4] = new Tile(Content, @"images/Character Princess Girl", 0);
 
             this.map = map;
+            this.life = life;
 
             charachters--;
             spawn();
@@ -47,7 +49,7 @@ namespace PlanetCute_ida
             }
         }
         
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             for (int i = 0; i <= charachters; i++)
             {
@@ -56,6 +58,7 @@ namespace PlanetCute_ida
                     c[i] = c[charachters];
                     charachters--;
                     i--;
+                    life.numberOfLifes--;
                 }
             }
 

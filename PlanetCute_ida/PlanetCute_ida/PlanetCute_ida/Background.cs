@@ -46,7 +46,7 @@ namespace PlanetCute_ida
             else return arr[y];
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
         }
 

@@ -19,7 +19,7 @@ namespace PlanetCute_ida
             this.bug = bug;
         }
 
-        public virtual void Update() { }
+        public virtual void Update(GameTime gameTime) { }
 
         public void Draw(SpriteBatch spriteBatch)
         {

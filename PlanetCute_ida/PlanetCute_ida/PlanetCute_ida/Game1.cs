@@ -68,11 +68,11 @@ namespace PlanetCute_ida
             background = new Background(Content, map);
 
             //Life
-            life = new Life(Content.Load<Texture2D>(@"images/Heart"));
+            life = new Life(Content.Load<Texture2D>(@"images/Heart"), 
+                            Content.Load<Texture2D>(@"images/Rock"));
             life.numberOfLifes = 5;
             
-
-            c = new CharacterManager(Content, map);
+            c = new CharacterManager(Content, map, life);
             b = new BugManager(Content, map);
 
             player = new Player();
@@ -109,7 +109,7 @@ namespace PlanetCute_ida
 
             foreach (GameObject go in gameobjects)
             {
-                go.Update();
+                go.Update(gameTime);
             }
 
             base.Update(gameTime);

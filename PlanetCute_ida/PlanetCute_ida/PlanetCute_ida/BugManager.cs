@@ -51,7 +51,7 @@ namespace PlanetCute_ida
         }
 
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             nextSpawn += 1;
             if (nextSpawn == 600)

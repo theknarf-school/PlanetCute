@@ -13,7 +13,7 @@ namespace PlanetCute_ida
         MouseState prevMouseState;
         Rectangle collisionMouse;
 
-        public virtual void Update()
+        public virtual void Update(GameTime gameTime)
         {
             const int size = 10;
 

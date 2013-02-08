@@ -11,19 +11,29 @@ namespace PlanetCute_ida
     class Life : GameObject
     {
         Texture2D heart;
+        Texture2D gameover;
         
         private double _rotate;
         public double rotate { get { return _rotate; } set { _rotate = value % (2 * Math.PI); } }
-        public int numberOfLifes { get; set; }
 
-        public Life(Texture2D heart)
+        private int _numberOfLifes;
+        public int numberOfLifes { get { return _numberOfLifes; } 
+                                set {
+                                     if (value >= 0)
+                                     {
+                                        _numberOfLifes = value;
+                                     }
+                                 }
+        }
+
+        public Life(Texture2D heart, Texture2D gameover)
         {
             this.heart = heart;
+            this.gameover = gameover;
         }
 
-        public virtual void Update()
-        {
-        }
+        public virtual void Update(GameTime gameTime)
+        { }
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
@@ -34,6 +44,11 @@ namespace PlanetCute_ida
                         (heart.Width * i/2),
                         (0)), 
                         null, Color.White, (float)_rotate, Vector2.Zero, 0.5f, SpriteEffects.None, 0);
+            }
+            if (_numberOfLifes == 0)
+            {
+                spriteBatch.Draw(gameover, 
+                    new Vector2(300, 200), Color.White);
             }
         }
 
