@@ -19,18 +19,6 @@ namespace PlanetCute_ida
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-<<<<<<< HEAD
-=======
-        
-        //Game World
-        Background background;
-        Player player;
-        Life life;
-        Map map = new Map();
-
-        CharacterManager c;
-        BugManager b;
->>>>>>> Chris
 
         //Game data
         List<GameObject> gameobjects = new List<GameObject>();
@@ -68,6 +56,7 @@ namespace PlanetCute_ida
             CharacterManager c;
             Background background;
             Player player;
+            BugManager b;
 
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -88,14 +77,11 @@ namespace PlanetCute_ida
 
             player = new Player();
 
-            gameobjects.Add(life);
             gameobjects.Add(background);
             gameobjects.Add(c);
-<<<<<<< HEAD
             gameobjects.Add(player);
-=======
             gameobjects.Add(b);
->>>>>>> Chris
+            gameobjects.Add(life);
         }
 
         /// <summary>

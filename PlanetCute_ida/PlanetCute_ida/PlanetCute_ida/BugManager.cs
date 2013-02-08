@@ -54,7 +54,7 @@ namespace PlanetCute_ida
         public void Update()
         {
             nextSpawn += 1;
-            if (nextSpawn == 150)
+            if (nextSpawn == 600)
             {
                 bugs--;
                 spawn();
