@@ -19,7 +19,7 @@ namespace PlanetCute_ida
 
         public BugManager(ContentManager Content, Map map)
         {
-            enemy = new Tile(Content, @"images/Enemy Bug", -20);
+            enemy = new Tile(Content, @"images/Enemy Bug", 0);
             this.map = map;
         }
 
@@ -34,14 +34,14 @@ namespace PlanetCute_ida
                 b[spoint].lifeTime = 10000;
                 b[spoint].spawnTime = gameTimeMillisec;
 
+                b[spoint].x = enemy.getSprite().Width * map.getBugSpawnpoint(spoint).x;
+
                 if (spoint == 4)
                 {
-                    b[spoint].x = enemy.getSprite().Width * map.getBugSpawnpoint(spoint).x;
                     b[spoint].y = enemy.getSprite().Height / 2 * map.getBugSpawnpoint(spoint).y - 50;
                 }
                 else
                 {
-                    b[spoint].x = enemy.getSprite().Width * map.getBugSpawnpoint(spoint).x;
                     b[spoint].y = enemy.getSprite().Height / 2 * map.getBugSpawnpoint(spoint).y;
                 }
             }

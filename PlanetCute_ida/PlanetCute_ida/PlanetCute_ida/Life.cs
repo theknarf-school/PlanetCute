@@ -12,6 +12,7 @@ namespace PlanetCute_ida
     {
         Texture2D heart;
         Texture2D gameover;
+        GraphicsDeviceManager gdm;
         
         private double _rotate;
         public double rotate { get { return _rotate; } set { _rotate = value % (2 * Math.PI); } }
@@ -26,10 +27,11 @@ namespace PlanetCute_ida
                                  }
         }
 
-        public Life(Texture2D heart, Texture2D gameover)
+        public Life(Texture2D heart, Texture2D gameover, GraphicsDeviceManager gdm)
         {
             this.heart = heart;
             this.gameover = gameover;
+            this.gdm = gdm;
         }
 
         public virtual void Update(GameTime gameTime)
@@ -48,7 +50,10 @@ namespace PlanetCute_ida
             if (_numberOfLifes == 0)
             {
                 spriteBatch.Draw(gameover, 
-                    new Vector2(300, 200), Color.White);
+                                 new Vector2(
+                                             (this.gdm.PreferredBackBufferWidth-gameover.Width)/2,
+                                             (this.gdm.PreferredBackBufferHeight-gameover.Height)/2),
+                                 Color.White);
             }
         }
 

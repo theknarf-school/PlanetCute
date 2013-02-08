@@ -69,7 +69,8 @@ namespace PlanetCute_ida
 
             //Life
             life = new Life(Content.Load<Texture2D>(@"images/Heart"), 
-                            Content.Load<Texture2D>(@"images/Rock"));
+                            Content.Load<Texture2D>(@"images/Game Over"),
+                            graphics);
             life.numberOfLifes = 5;
             
             c = new CharacterManager(Content, map, life);

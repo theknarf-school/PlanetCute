@@ -15,6 +15,7 @@ namespace PlanetCute_ida
         public int y;
         public int spawnTime;
         public int lifeTime;
+        public float size = 0.5f;
 
         public Bug(Tile bug) 
         {
@@ -29,8 +30,11 @@ namespace PlanetCute_ida
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(bug.getSprite(),
-                                new Vector2(x, y + bug.offset),
-                                Color.White
+                                new Vector2(
+                                            x + ((1-size)*bug.getSprite().Width)/2,
+                                            y + bug.offset + ((1 - size) * bug.getSprite().Height) / 2
+                                            ),
+                                null, Color.White, 0, Vector2.Zero, size, SpriteEffects.None, 0
                             );
         }
     }

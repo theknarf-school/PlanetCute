@@ -514,6 +514,15 @@
       <Output>C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\Wood Block.xnb</Output>
       <Time>2013-02-06T16:30:51.3628731+01:00</Time>
     </Item>
+    <Item>
+      <Source>images\Game Over.png</Source>
+      <Name>images\Game Over</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\Game Over.xnb</Output>
+      <Time>2013-02-08T13:16:06.423023+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
