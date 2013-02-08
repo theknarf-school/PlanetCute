@@ -19,6 +19,18 @@ namespace PlanetCute_ida
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+<<<<<<< HEAD
+=======
+        
+        //Game World
+        Background background;
+        Player player;
+        Life life;
+        Map map = new Map();
+
+        CharacterManager c;
+        BugManager b;
+>>>>>>> Chris
 
         //Game data
         List<GameObject> gameobjects = new List<GameObject>();
@@ -69,15 +81,21 @@ namespace PlanetCute_ida
             //Life
             life = new Life(Content.Load<Texture2D>(@"images/Heart"));
             life.numberOfLifes = 5;
+            
 
             c = new CharacterManager(Content, map);
+            b = new BugManager(Content, map);
 
             player = new Player();
 
             gameobjects.Add(life);
             gameobjects.Add(background);
             gameobjects.Add(c);
+<<<<<<< HEAD
             gameobjects.Add(player);
+=======
+            gameobjects.Add(b);
+>>>>>>> Chris
         }
 
         /// <summary>
@@ -119,7 +137,7 @@ namespace PlanetCute_ida
         {
             GraphicsDevice.Clear(Color.LightBlue);
             spriteBatch.Begin();
-            
+
             foreach (GameObject go in gameobjects)
             {
                 go.Draw(spriteBatch);
