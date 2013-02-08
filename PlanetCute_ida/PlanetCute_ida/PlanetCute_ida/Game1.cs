@@ -104,9 +104,9 @@ namespace PlanetCute_ida
             // Add stuff to gameobjects
             gameobjects = new List<GameObject>();
             gameobjects.Add(background);
+            gameobjects.Add(bmanger);
             gameobjects.Add(cmanager);
             gameobjects.Add(player);
-            gameobjects.Add(bmanger);
             gameobjects.Add(life);
             gameobjects.Add(gems);
             gameobjects.Add(ss);

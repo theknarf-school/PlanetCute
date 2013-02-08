@@ -77,10 +77,15 @@ namespace PlanetCute_ida
             {
                 for (int y = 0; y < this.mMap.height; y++)
                 {
-                    Tile sprite = this.tSprites[this.mMap.getTileID(x, transformY(y))];
+                    int id = this.mMap.getTileID(x, transformY(y));
 
-                    // Drawing each tile
-                    sprite.Draw(spriteBatch, x, transformY(y));
+                    if (id >= 0 && id < this.tSprites.Length)
+                    {
+                        Tile sprite = this.tSprites[id];
+
+                        // Drawing each tile
+                        sprite.Draw(spriteBatch, x, transformY(y));
+                    }
                 }
             }
         }
