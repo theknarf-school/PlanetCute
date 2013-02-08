@@ -8,6 +8,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace PlanetCute_ida
 {
+    /// <summary>
+    /// 
+    /// </summary>
     class Bug : ActiveElements
     {
         public int spawnTime;

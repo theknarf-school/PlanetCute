@@ -58,6 +58,7 @@ namespace PlanetCute_ida
         {
             allMaps.Enqueue("map1.txt");
             allMaps.Enqueue("map2.txt");
+            allMaps.Enqueue("map3.txt");
             newgame((string)allMaps.Dequeue());    
         }
 

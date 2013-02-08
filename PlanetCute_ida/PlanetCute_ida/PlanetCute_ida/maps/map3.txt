@@ -1,0 +1,25 @@
+This is the map file
+--------------------
+Level: Experimental two
+Mapdata
+-------
+
+Map width and height: 7 6
+4 4 12 10 12 12
+4 4 12 10 12 12
+4 4 12 10 12 12
+4 4 12 10 12 12
+4 4 12 10 12 12
+4 4 12 10 12 12
+4 4 12 10 12 12
+
+Character spawn points: 3
+-1 4
+-1 5
+-1 2
+
+Bug spawn points: 4
+3 1
+4 1
+3 0
+4 0
