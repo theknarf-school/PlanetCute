@@ -21,8 +21,8 @@ namespace PlanetCute_ida
         SpriteBatch spriteBatch;
 
         //Game data
-        List<GameObject> gameobjects = new List<GameObject>();
-        Clickmanager clickmanager = new Clickmanager();
+        List<GameObject> gameobjects;
+        Clickmanager clickmanager;
 
         StatusScreen ss;
         
@@ -54,19 +54,24 @@ namespace PlanetCute_ida
         /// </summary>
         protected override void LoadContent()
         {
+            newgame(@"maps/map1.txt");    
+        }
+
+        private void newgame(String mapPath)
+        {
             Map map = new Map();
-            CharacterManager c;
+            CharacterManager cmanager;
             Background background;
             Player player;
-            BugManager b;
+            BugManager bmanger;
             Gems gems;
             Life life;
 
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            
+
             // Load map
-            map.loadMap(@"maps/map1.txt");
+            map.loadMap(mapPath);
 
             ss = new StatusScreen(Content, graphics);
 
@@ -74,25 +79,29 @@ namespace PlanetCute_ida
             background = new Background(Content, map);
 
             //Life
-            life = new Life(Content.Load<Texture2D>(@"images/Heart"), 
+            life = new Life(Content.Load<Texture2D>(@"images/Heart"),
                             Content.Load<Texture2D>(@"images/Game Over"),
                             ss);
             life.life = 5;
 
             //Gems
             gems = new Gems(Content, graphics, ss);
-            
-            c = new CharacterManager(Content, map, life);
-            b = new BugManager(Content, map, gems);
 
-            clickmanager.Add(c);
-            clickmanager.Add(b);
+            cmanager = new CharacterManager(Content, map, life);
+            bmanger = new BugManager(Content, map, gems);
+
+            // Add stuff to the clickmanager and initialize player
+            clickmanager = new Clickmanager();
+            clickmanager.Add(cmanager);
+            clickmanager.Add(bmanger);
             player = new Player(clickmanager, ss);
-            
+
+            // Add stuff to gameobjects
+            gameobjects = new List<GameObject>();
             gameobjects.Add(background);
-            gameobjects.Add(c);
+            gameobjects.Add(cmanager);
             gameobjects.Add(player);
-            gameobjects.Add(b);
+            gameobjects.Add(bmanger);
             gameobjects.Add(life);
             gameobjects.Add(gems);
             gameobjects.Add(ss);
