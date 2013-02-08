@@ -16,5 +16,11 @@ namespace PlanetCute_ida
         public Bug(Tile type) : base(type) {
             size = 0.5f; // Sets another standard size for it
         }
+
+        public virtual void Click(Rectangle mouse)
+        {
+            if (mouse.Intersects(GetCollitionBox()))
+                looseLife();
+        }
     }
 }

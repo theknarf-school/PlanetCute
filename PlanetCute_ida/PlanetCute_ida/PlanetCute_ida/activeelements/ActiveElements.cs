@@ -48,12 +48,9 @@ namespace PlanetCute_ida
         {
             this.life--;
         }
-
-
-        public void Click(Rectangle mouse)
+        
+        public virtual void Click(Rectangle mouse)
         {
-            if (mouse.Intersects(GetCollitionBox()))
-                looseLife();
         }
     }
 }

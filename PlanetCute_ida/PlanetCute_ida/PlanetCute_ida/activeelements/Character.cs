@@ -17,5 +17,11 @@ namespace PlanetCute_ida
         {
             this.x += speed;
         }
+
+        public virtual void Click(Rectangle mouse)
+        {
+            if (mouse.Intersects(GetCollitionBox()))
+                looseLife();
+        }
     }
 }
