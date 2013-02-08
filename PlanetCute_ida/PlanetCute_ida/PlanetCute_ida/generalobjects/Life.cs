@@ -15,7 +15,7 @@ namespace PlanetCute_ida
 
         private bool gotHit = false;
         private double timeGotHit = 0;
-        public int hitAnimationLength = 1000;
+        public double hitAnimationLength = 2 * Math.PI * 100;
         public float tmpRotat = 0;
         
         public Life(Texture2D heart, Texture2D gameover, GraphicsDeviceManager gdm) : base(new Tile(heart, 0))

@@ -24,6 +24,8 @@ namespace PlanetCute_ida
         List<GameObject> gameobjects = new List<GameObject>();
         Clickmanager clickmanager = new Clickmanager();
 
+        Life life;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -52,7 +54,6 @@ namespace PlanetCute_ida
         /// </summary>
         protected override void LoadContent()
         {
-            Life life;
             Map map = new Map();
             CharacterManager c;
             Background background;
@@ -109,6 +110,9 @@ namespace PlanetCute_ida
                 this.Exit();
 
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+                this.Exit();
+
+            if (life.life < 0)
                 this.Exit();
 
             foreach (GameObject go in gameobjects)
