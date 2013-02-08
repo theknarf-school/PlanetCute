@@ -21,15 +21,6 @@ namespace PlanetCute_ida
         public int numberOfSpawnpoints { get { return this._spawnpoints.Length; } }
         public int numberOfBugspawnpoints { get { return this._bugspawnpoints.Length; } }
 
-        //Bugs
-        private Position[] _spawnPointsBug;
-        public int numberOfSpawnPointsBug { get { return this._spawnPointsBug.Length; } }
-
-        public Position getSpawnPointBug(int p)
-        {
-            return this._spawnPointsBug[p];
-        }
-
         public int getTileID(int x, int y)
         {
             return this._map[x, y];

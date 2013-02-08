@@ -11,15 +11,20 @@ namespace PlanetCute_ida
     class Bug : GameObject
     {
         private Tile bug;
-        public int x { get; set; }
-        public int y { get; set; }
+        public int x;
+        public int y;
+        public int spawnTime;
+        public int lifeTime;
 
         public Bug(Tile bug) 
         {
             this.bug = bug;
         }
 
-        public virtual void Update(GameTime gameTime) { }
+        public virtual void Update(GameTime gameTime)
+        {
+            
+        }
 
         public void Draw(SpriteBatch spriteBatch)
         {

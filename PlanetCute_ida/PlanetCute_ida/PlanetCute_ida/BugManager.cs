@@ -12,8 +12,7 @@ namespace PlanetCute_ida
     {
         Map map;
         Random r = new Random();
-        Bug[] b = new Bug[4];
-        int bugs = 0;
+        Bug[] b = new Bug[5];
         Tile enemy;
         int spoint;
         int nextSpawn = 0;
@@ -22,30 +21,28 @@ namespace PlanetCute_ida
         {
             enemy = new Tile(Content, @"images/Enemy Bug", -20);
             this.map = map;
-            bugs--;
-            spawn();
         }
 
 
-        public void spawn()
+        public void spawn(int gameTimeMillisec)
         {
-            if (bugs < 4)
+            spoint = r.Next(map.numberOfBugspawnpoints);
+
+            if (b[spoint] == null)
             {
-                bugs++;
-
-                b[bugs] = new Bug(enemy);
-                spoint = r.Next(map.numberOfBugspawnpoints);
-
+                b[spoint] = new Bug(enemy);
+                b[spoint].lifeTime = 10000;
+                b[spoint].spawnTime = gameTimeMillisec;
 
                 if (spoint == 4)
                 {
-                    b[bugs].x = enemy.getSprite().Width * map.getBugSpawnpoint(spoint).x;
-                    b[bugs].y = enemy.getSprite().Height / 2 * map.getBugSpawnpoint(spoint).y - 50;
+                    b[spoint].x = enemy.getSprite().Width * map.getBugSpawnpoint(spoint).x;
+                    b[spoint].y = enemy.getSprite().Height / 2 * map.getBugSpawnpoint(spoint).y - 50;
                 }
                 else
                 {
-                    b[bugs].x = enemy.getSprite().Width * map.getBugSpawnpoint(spoint).x;
-                    b[bugs].y = enemy.getSprite().Height / 2 * map.getBugSpawnpoint(spoint).y;
+                    b[spoint].x = enemy.getSprite().Width * map.getBugSpawnpoint(spoint).x;
+                    b[spoint].y = enemy.getSprite().Height / 2 * map.getBugSpawnpoint(spoint).y;
                 }
             }
         }
@@ -54,18 +51,31 @@ namespace PlanetCute_ida
         public void Update(GameTime gameTime)
         {
             nextSpawn += 1;
-            if (nextSpawn == 600)
+            if (nextSpawn == 300)
             {
-                bugs--;
-                spawn();
+                spawn((int)gameTime.TotalGameTime.TotalMilliseconds);
                 nextSpawn = 0;
+            }
+            
+            // if to much time has gone, delete them
+            for(int i = 0; i < b.Length; i++)
+            {
+                if (b[i] != null)
+                {
+                    Bug bug = b[i];
+                    if (gameTime.TotalGameTime.TotalMilliseconds - bug.spawnTime > bug.lifeTime)
+                    {
+                        b[i] = null;
+                    }
+                }
             }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            for (int i = 0; i <= bugs; i++)
-                b[i].Draw(spriteBatch);
+            for (int i = 0; i < b.Length; i++)
+                if(b[i] != null)
+                    b[i].Draw(spriteBatch);
         }
 
     }
