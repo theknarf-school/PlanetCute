@@ -523,6 +523,42 @@
       <Output>C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\Game Over.xnb</Output>
       <Time>2013-02-08T13:16:06.423023+01:00</Time>
     </Item>
+    <Item>
+      <Source>images\Game Escape.png</Source>
+      <Name>images\Game Escape</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\Game Escape.xnb</Output>
+      <Time>2013-02-08T20:57:44.5383054+01:00</Time>
+    </Item>
+    <Item>
+      <Source>images\Game Next Level.png</Source>
+      <Name>images\Game Next Level</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\Game Next Level.xnb</Output>
+      <Time>2013-02-08T18:44:33.9776526+01:00</Time>
+    </Item>
+    <Item>
+      <Source>images\Game Try Again.png</Source>
+      <Name>images\Game Try Again</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\Game Try Again.xnb</Output>
+      <Time>2013-02-08T18:44:30.1564748+01:00</Time>
+    </Item>
+    <Item>
+      <Source>images\Game Win.png</Source>
+      <Name>images\Game Win</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\Game Win.xnb</Output>
+      <Time>2013-02-08T18:33:56.2676647+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

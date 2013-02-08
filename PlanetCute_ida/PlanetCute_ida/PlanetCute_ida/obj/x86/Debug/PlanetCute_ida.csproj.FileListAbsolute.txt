@@ -63,3 +63,7 @@ C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\Pl
 C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\obj\x86\Debug\Planet Cute.exe
 C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\obj\x86\Debug\Planet Cute.pdb
 C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\Game Over.xnb
+C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\Game Escape.xnb
+C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\Game Next Level.xnb
+C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\Game Try Again.xnb
+C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\Game Win.xnb

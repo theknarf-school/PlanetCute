@@ -11,17 +11,15 @@ namespace PlanetCute_ida
     class Life : ActiveElements
     {
         Tile gameover;
-        GraphicsDeviceManager gdm;
 
         private bool gotHit = false;
         private double timeGotHit = 0;
         public double hitAnimationLength = 2 * Math.PI * 100;
         public float tmpRotat = 0;
         
-        public Life(Texture2D heart, Texture2D gameover, GraphicsDeviceManager gdm) : base(new Tile(heart, 0))
+        public Life(Texture2D heart, Texture2D gameover) : base(new Tile(heart, 0))
         {
             this.gameover = new Tile(gameover, 0);
-            this.gdm = gdm;
             this.size = 0.5f;
             this.moveBasedOnSize = false;
             this.rotateVec = new Vector2(type.getSprite().Width / 2, type.getSprite().Height / 2);
@@ -69,15 +67,6 @@ namespace PlanetCute_ida
                 }
 
                 base.Draw(spriteBatch, gameTime);
-            }
-
-            if (life == 0)
-            {
-                spriteBatch.Draw(gameover.getSprite(),
-                                 new Vector2(
-                                             (this.gdm.PreferredBackBufferWidth  - gameover.getSprite().Width) / 2,
-                                             (this.gdm.PreferredBackBufferHeight - gameover.getSprite().Height) / 2),
-                                 Color.White);
             }
         }
 

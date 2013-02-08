@@ -67,6 +67,7 @@ namespace PlanetCute_ida
                     Bug bug = b[i];
                     if (gameTime.TotalGameTime.TotalMilliseconds - bug.spawnTime > bug.lifeTime)
                     {
+                        // If the lifetime is 0 that is the same as they live forever
                         if (b[i].lifeTime != 0)
                             remove(i);
                     }
@@ -83,6 +84,7 @@ namespace PlanetCute_ida
 
         private void remove(int i)
         {
+            // Delete the bug
             b[i] = null;
         }
 
@@ -95,14 +97,12 @@ namespace PlanetCute_ida
 
                     if (b[i].life == 0)
                     {
-                        Bug tmp = new Bug(new Tile(gems.getNextGem().getSprite(),0));
-                        tmp.life = 0;
-                        tmp.x = b[i].x;
-                        tmp.y = b[i].y;
-                        b[i] = tmp;
+                        // Spawns a gem instead
+                        b[i].type = gems.getNextGem();
                     }
                     else if( b[i].life < 0)
                     {
+                        // Remove it
                         gems.findGem();
                         remove(i);
                     }

@@ -18,9 +18,10 @@ namespace PlanetCute_ida
 
         public Gems(ContentManager Content, GraphicsDeviceManager gdm) : base(null)
         {
-            tGems[0] = new Tile(Content, @"images/Gem Blue",   -60);
-            tGems[1] = new Tile(Content, @"images/Gem Green",  -60);
-            tGems[2] = new Tile(Content, @"images/Gem Orange", -60);
+            tGems[0] = new Tile(Content, @"images/Gem Blue",   0);
+            tGems[1] = new Tile(Content, @"images/Gem Green",  0);
+            tGems[2] = new Tile(Content, @"images/Gem Orange", 0);
+            this.y = -60;
             this.gdm = gdm;
             this.type = tGems[0];
             this.size = 0.5f;

@@ -9,7 +9,7 @@ namespace PlanetCute_ida
 {
     class ActiveElements : Clickable, GameObject
     {
-        protected Tile type;
+        public Tile type;
         public int x;
         public int y;
         public int life = 1;

@@ -24,6 +24,7 @@ namespace PlanetCute_ida
         List<GameObject> gameobjects = new List<GameObject>();
         Clickmanager clickmanager = new Clickmanager();
 
+        StatusScreen ss;
         Life life;
 
         public Game1()
@@ -72,8 +73,7 @@ namespace PlanetCute_ida
 
             //Life
             life = new Life(Content.Load<Texture2D>(@"images/Heart"), 
-                            Content.Load<Texture2D>(@"images/Game Over"),
-                            graphics);
+                            Content.Load<Texture2D>(@"images/Game Over"));
             life.life = 5;
 
             //Gems
@@ -86,12 +86,15 @@ namespace PlanetCute_ida
             clickmanager.Add(b);
             player = new Player(clickmanager);
 
+            ss = new StatusScreen(Content, graphics, life, gems);
+
             gameobjects.Add(background);
             gameobjects.Add(c);
             gameobjects.Add(player);
             gameobjects.Add(b);
             gameobjects.Add(life);
             gameobjects.Add(gems);
+            gameobjects.Add(ss);
         }
 
         /// <summary>
@@ -115,9 +118,6 @@ namespace PlanetCute_ida
                 this.Exit();
 
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
-                this.Exit();
-
-            if (life.life < 0)
                 this.Exit();
 
             foreach (GameObject go in gameobjects)
