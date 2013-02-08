@@ -86,9 +86,11 @@ namespace PlanetCute_ida
 
         public void Click(Rectangle mouse)
         {
-            for (int i = 0; i <= charachters; i++)
+            for (int i = charachters; i >= 0; i--)
             {
-                if (c[i].GetCollitionBox().Intersects(mouse))
+                c[i].Click(mouse);
+
+                if (c[i].life <= 0)
                 {
                     Delete(i);
                     return;
