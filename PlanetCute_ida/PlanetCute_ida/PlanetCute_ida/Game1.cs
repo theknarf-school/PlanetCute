@@ -20,6 +20,8 @@ namespace PlanetCute_ida
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        Queue<String> allMaps = new Queue<String>();
+
         //Game data
         List<GameObject> gameobjects;
         Clickmanager clickmanager;
@@ -44,7 +46,7 @@ namespace PlanetCute_ida
         protected override void Initialize()
         {
             this.IsMouseVisible = true;
-            this.Window.Title = "Planet Cute - Level 1";
+            this.Window.Title = "Planet Cute - Hit 'n' for next lever if you win the current one";
             base.Initialize();
         }
 
@@ -54,7 +56,9 @@ namespace PlanetCute_ida
         /// </summary>
         protected override void LoadContent()
         {
-            newgame(@"maps/map1.txt");    
+            allMaps.Enqueue("map1.txt");
+            allMaps.Enqueue("map2.txt");
+            newgame((string)allMaps.Dequeue());    
         }
 
         private void newgame(String mapPath)
@@ -71,7 +75,7 @@ namespace PlanetCute_ida
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // Load map
-            map.loadMap(mapPath);
+            map.loadMap(@"maps/" + mapPath);
 
             ss = new StatusScreen(Content, graphics);
 
@@ -129,6 +133,12 @@ namespace PlanetCute_ida
 
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
+
+            if (Keyboard.GetState().IsKeyDown(Keys.N))
+            {
+                if(allMaps.Count>0&&this.ss.GameWon)
+                    newgame((string)allMaps.Dequeue()); 
+            }
 
             foreach (GameObject go in gameobjects)
             {
