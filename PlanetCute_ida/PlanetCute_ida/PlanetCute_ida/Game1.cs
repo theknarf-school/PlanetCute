@@ -59,6 +59,7 @@ namespace PlanetCute_ida
             Background background;
             Player player;
             BugManager b;
+            Gems gems;
 
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -74,9 +75,12 @@ namespace PlanetCute_ida
                             Content.Load<Texture2D>(@"images/Game Over"),
                             graphics);
             life.life = 5;
+
+            //Gems
+            gems = new Gems(Content, graphics);
             
             c = new CharacterManager(Content, map, life);
-            b = new BugManager(Content, map);
+            b = new BugManager(Content, map, gems);
 
             clickmanager.Add(c);
             clickmanager.Add(b);
@@ -87,6 +91,7 @@ namespace PlanetCute_ida
             gameobjects.Add(player);
             gameobjects.Add(b);
             gameobjects.Add(life);
+            gameobjects.Add(gems);
         }
 
         /// <summary>

@@ -16,19 +16,20 @@ namespace PlanetCute_ida
         Tile enemy;
         int spoint;
         int nextSpawn = 0;
+        Gems gems;
 
-        public BugManager(ContentManager Content, Map map)
+        public BugManager(ContentManager Content, Map map, Gems gems)
         {
             enemy = new Tile(Content, @"images/Enemy Bug", 0);
             this.map = map;
+            this.gems = gems;
         }
-
 
         public void spawn(int gameTimeMillisec)
         {
             spoint = r.Next(map.numberOfBugspawnpoints);
 
-            if (b[spoint] == null)
+            if (b[spoint] == null && this.gems.numberOfGems < 3)
             {
                 b[spoint] = new Bug(enemy);
                 b[spoint].lifeTime = 10000;
@@ -66,7 +67,8 @@ namespace PlanetCute_ida
                     Bug bug = b[i];
                     if (gameTime.TotalGameTime.TotalMilliseconds - bug.spawnTime > bug.lifeTime)
                     {
-                        b[i] = null;
+                        if (b[i].lifeTime != 0)
+                            remove(i);
                     }
                 }
             }
@@ -90,8 +92,20 @@ namespace PlanetCute_ida
                 if (b[i] != null)
                 {
                     b[i].Click(mouse);
-                    if (b[i].life <= 0)
+
+                    if (b[i].life == 0)
+                    {
+                        Bug tmp = new Bug(new Tile(gems.getNextGem().getSprite(),0));
+                        tmp.life = 0;
+                        tmp.x = b[i].x;
+                        tmp.y = b[i].y;
+                        b[i] = tmp;
+                    }
+                    else if( b[i].life < 0)
+                    {
+                        gems.findGem();
                         remove(i);
+                    }
                 }
         }
     }

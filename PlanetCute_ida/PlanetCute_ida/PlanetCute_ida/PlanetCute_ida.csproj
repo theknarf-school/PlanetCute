@@ -78,6 +78,7 @@
     <Compile Include="gameobjects\BugManager.cs" />
     <Compile Include="activeelements\Character.cs" />
     <Compile Include="gameobjects\CharacterManager.cs" />
+    <Compile Include="Gems.cs" />
     <Compile Include="generalobjects\Animation.cs" />
     <Compile Include="generalobjects\Clickmanager.cs" />
     <Compile Include="interfaces\Clickable.cs" />
