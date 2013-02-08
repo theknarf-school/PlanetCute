@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace PlanetCute_ida
 {
-    class CharacterManager : GameObject
+    class CharacterManager : GameObject, Clickable
     {
         Tile[] charachterTiles = new Tile[5];
         int charachters = 0;
@@ -55,8 +55,7 @@ namespace PlanetCute_ida
             {
                 if (c[i].x > 101 * 7)
                 {
-                    c[i] = c[charachters];
-                    charachters--;
+                    Delete(i);
                     i--;
                     life.numberOfLifes--;
                 }
@@ -69,10 +68,27 @@ namespace PlanetCute_ida
                 spawn();
         }
 
+        private void Delete(int obj)
+        {
+            c[obj] = c[charachters];
+            charachters--;
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             for(int i = 0; i <= charachters; i++)
                 c[i].Draw(spriteBatch);
+        }
+
+        public void Click(Rectangle mouse)
+        {
+            for (int i = 0; i <= charachters; i++)
+            {
+                if (c[i].GetCollitionBox().Intersects(mouse))
+                    Delete(i);
+
+                i--;
+            }
         }
     }
 }

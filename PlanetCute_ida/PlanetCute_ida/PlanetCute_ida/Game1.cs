@@ -22,6 +22,7 @@ namespace PlanetCute_ida
 
         //Game data
         List<GameObject> gameobjects = new List<GameObject>();
+        Clickmanager clickmanager = new Clickmanager();
 
         public Game1()
         {
@@ -76,7 +77,8 @@ namespace PlanetCute_ida
             c = new CharacterManager(Content, map, life);
             b = new BugManager(Content, map);
 
-            player = new Player();
+            clickmanager.Add(c);
+            player = new Player(clickmanager);
 
             gameobjects.Add(background);
             gameobjects.Add(c);

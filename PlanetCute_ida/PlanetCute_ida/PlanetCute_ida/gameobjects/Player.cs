@@ -8,23 +8,36 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace PlanetCute_ida
 {
-    class Player : GameObject
+    class Player : GameObject, Clickable
     {
-        MouseState prevMouseState;
-        Rectangle collisionMouse;
+        private MouseState prevMouseState;
+        private Rectangle collisionMouse;
+        private const int size = 10;
+        private Clickmanager cm;
+
+        public Player(Clickmanager cm)
+        {
+            this.cm = cm;
+        }
 
         public virtual void Update(GameTime gameTime)
         {
-            const int size = 10;
-
             MouseState mouseState = Mouse.GetState();
+
             if (mouseState.X != prevMouseState.X ||
                 mouseState.Y != prevMouseState.Y)
                 collisionMouse = new Rectangle(mouseState.X-size/2, mouseState.Y-size/2, size/2, size/2);
-            prevMouseState = mouseState;
 
+            if (mouseState.LeftButton == ButtonState.Released && prevMouseState.LeftButton == ButtonState.Pressed)
+                Click(collisionMouse);
+
+            prevMouseState = mouseState;
         }
 
+        public void Click(Rectangle mouse)
+        {
+            cm.Click(mouse);
+        }
 
         public void Draw(SpriteBatch spriteBatch)
         {

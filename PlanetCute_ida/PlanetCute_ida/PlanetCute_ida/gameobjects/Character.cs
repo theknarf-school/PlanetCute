@@ -21,6 +21,11 @@ namespace PlanetCute_ida
             type = sprites[r.Next(sprites.Length)];
         }
 
+        public Rectangle GetCollitionBox()
+        {
+            return new Rectangle(x, y, type.getSprite().Width, type.getSprite().Width);
+        }
+
         public void Update()
         {
             this.x += speed;
