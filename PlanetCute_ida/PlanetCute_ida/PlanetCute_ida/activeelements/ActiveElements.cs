@@ -29,6 +29,7 @@ namespace PlanetCute_ida
 
         public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
+            // Draws sprites depending on some options
             spriteBatch.Draw(   
                                 type.getSprite(),
                                 new Vector2(

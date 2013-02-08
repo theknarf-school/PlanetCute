@@ -53,7 +53,7 @@ namespace PlanetCute_ida
                 this.gotHit = true;
                 this.tmpRotat = 1;
             }
-            //base.looseLife();
+            base.looseLife();
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -64,8 +64,8 @@ namespace PlanetCute_ida
 
                 if (this.gotHit)
                 {
-                    this.tmpRotat += (float)gameTime.ElapsedGameTime.Milliseconds / 500;
-                    this.rotate = (float)Math.Sin(this.tmpRotat);
+                    this.tmpRotat += (float)gameTime.ElapsedGameTime.Milliseconds / 300;
+                    this.rotate = (float)Math.Sin(this.tmpRotat)/2;
                 }
 
                 base.Draw(spriteBatch, gameTime);
