@@ -22,7 +22,7 @@ Map width and height: 7 6
 2 5 9 10 12 14
 
 Character spawn points: 1
-0 4
+-1 4
 
 Bug spawn points: 5
 1 1
