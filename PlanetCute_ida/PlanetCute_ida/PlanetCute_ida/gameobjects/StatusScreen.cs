@@ -20,6 +20,7 @@ namespace PlanetCute_ida
         // Graphics
         private Tile tGameover;
         private Tile tGamewon;
+        private Tile tGamewonAll;
         private Tile tEscape;
         private Tile tNext;
 
@@ -30,10 +31,11 @@ namespace PlanetCute_ida
 
         public StatusScreen(ContentManager Content, GraphicsDeviceManager gdm, bool last)
         {
-            tGameover = new Tile(Content, @"images/Game Over", 0);
-            tGamewon  = new Tile(Content, @"images/Game Win", 0);
-            tEscape   = new Tile(Content, @"images/Game Escape", 0);
-            tNext     = new Tile(Content, @"images/press n for next level", 0); 
+            tGameover   = new Tile(Content, @"images/Game Over", 0);
+            tGamewon    = new Tile(Content, @"images/Game Win", 0);
+            tGamewonAll = new Tile(Content, @"images/Game won all", 0);
+            tEscape     = new Tile(Content, @"images/Game Escape", 0);
+            tNext       = new Tile(Content, @"images/press n for next level", 0); 
             this.gdm = gdm;
             this.last = last;
         }
@@ -55,7 +57,7 @@ namespace PlanetCute_ida
                                              (this.gdm.PreferredBackBufferHeight - tGameover.getSprite().Height) / 2),
                                  Color.White);
             }
-            else if (GameWon)
+            else if (GameWon && !last)
             {
                 spriteBatch.Draw(tGamewon.getSprite(),
                                  new Vector2(
@@ -68,6 +70,14 @@ namespace PlanetCute_ida
                                              (this.gdm.PreferredBackBufferWidth  - tNext.getSprite().Width) / 2,
                                              this.gdm.PreferredBackBufferHeight /2 + tNext.getSprite().Height * 2),
                                  Color.White);
+            }
+            else if (GameWon && last)
+            {
+                spriteBatch.Draw(tGamewonAll.getSprite(),
+                                new Vector2(
+                                            (this.gdm.PreferredBackBufferWidth - tGamewonAll.getSprite().Width) / 2,
+                                            (this.gdm.PreferredBackBufferHeight - tGamewonAll.getSprite().Height) / 2),
+                                Color.White);
             }
 
             if (!Playing)

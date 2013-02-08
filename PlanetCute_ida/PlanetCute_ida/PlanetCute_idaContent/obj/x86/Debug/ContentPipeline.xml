@@ -568,6 +568,15 @@
       <Output>C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\press n for next level.xnb</Output>
       <Time>2013-02-08T22:52:46.2424604+01:00</Time>
     </Item>
+    <Item>
+      <Source>images\game won all.png</Source>
+      <Name>images\game won all</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\game won all.xnb</Output>
+      <Time>2013-02-08T23:23:46.9626602+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

@@ -8,6 +8,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace PlanetCute_ida
 {
+    /// <summary>
+    /// Keeps count of life
+    /// </summary>
     class Life : ActiveElements
     {
         Tile gameover;
