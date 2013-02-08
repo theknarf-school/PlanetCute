@@ -13,10 +13,11 @@ namespace PlanetCute_ida
         Tile[] tGems = new Tile[3];
         int gemsFound = 0;
         GraphicsDeviceManager gdm;
+        StatusScreen ss;
 
         public int numberOfGems { get { return gemsFound; } }
 
-        public Gems(ContentManager Content, GraphicsDeviceManager gdm) : base(null)
+        public Gems(ContentManager Content, GraphicsDeviceManager gdm, StatusScreen ss) : base(null)
         {
             tGems[0] = new Tile(Content, @"images/Gem Blue",   0);
             tGems[1] = new Tile(Content, @"images/Gem Green",  0);
@@ -25,6 +26,7 @@ namespace PlanetCute_ida
             this.gdm = gdm;
             this.type = tGems[0];
             this.size = 0.5f;
+            this.ss = ss;
         }
 
         public void findGem()
@@ -35,6 +37,12 @@ namespace PlanetCute_ida
         public Tile getNextGem()
         {
             return tGems[gemsFound];
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            if (this.numberOfGems == 3) this.ss.GameWon = true;
+            base.Update(gameTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)

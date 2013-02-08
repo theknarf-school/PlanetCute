@@ -16,13 +16,15 @@ namespace PlanetCute_ida
         private double timeGotHit = 0;
         public double hitAnimationLength = 2 * Math.PI * 100;
         public float tmpRotat = 0;
-        
-        public Life(Texture2D heart, Texture2D gameover) : base(new Tile(heart, 0))
+        private StatusScreen ss;
+
+        public Life(Texture2D heart, Texture2D gameover, StatusScreen ss) : base(new Tile(heart, 0))
         {
             this.gameover = new Tile(gameover, 0);
             this.size = 0.5f;
             this.moveBasedOnSize = false;
             this.rotateVec = new Vector2(type.getSprite().Width / 2, type.getSprite().Height / 2);
+            this.ss = ss;
         }
 
         public override void Update(GameTime gameTime)
@@ -41,17 +43,23 @@ namespace PlanetCute_ida
                 }
             }
 
+            if (this.life <= 0) this.ss.GameOver = true;
+
             base.Update(gameTime);
         }
 
         public override void looseLife()
         {
-            if (!this.gotHit)
+            if (this.ss.Playing)
             {
-                this.gotHit = true;
-                this.tmpRotat = 1;
+                if (!this.gotHit)
+                {
+                    this.gotHit = true;
+                    this.tmpRotat = 1;
+                }
+
+                base.looseLife();
             }
-            base.looseLife();
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)

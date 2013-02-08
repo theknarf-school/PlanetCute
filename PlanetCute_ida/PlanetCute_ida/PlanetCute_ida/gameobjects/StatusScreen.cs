@@ -19,24 +19,19 @@ namespace PlanetCute_ida
 
         public bool GameOver { get { return Status == -1; } set { if (Status == 0 && value == true) Status = -1; } }
         public bool GameWon  { get { return Status == 1; }  set { if (Status == 0 && value == true) Status = 1; } }
+        public bool Playing { get { return Status == 0; } }
 
-        private Life life;
-        private Gems gems;
-
-        public StatusScreen(ContentManager Content, GraphicsDeviceManager gdm, Life life, Gems gems)
+        public StatusScreen(ContentManager Content, GraphicsDeviceManager gdm)
         {
             tGameover = new Tile(Content, @"images/Game Over", 0);
             tGamewon = new Tile(Content, @"images/Game Win", 0);
             tEscape = new Tile(Content, @"images/Game Escape", 0);
             this.gdm = gdm;
-            this.life = life;
-            this.gems = gems;
         }
 
         public void Update(GameTime gameTime)
         {
-            if (this.gems.numberOfGems == 3) GameWon  = true;
-            if (this.life.life <= 0)         GameOver = true;
+
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -58,7 +53,7 @@ namespace PlanetCute_ida
                                  Color.White);
             }
 
-            if (GameOver || GameWon)
+            if (!Playing)
             {
                 spriteBatch.Draw(tEscape.getSprite(),
                                   new Vector2(

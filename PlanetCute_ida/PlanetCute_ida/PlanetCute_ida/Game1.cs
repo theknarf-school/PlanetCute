@@ -68,26 +68,27 @@ namespace PlanetCute_ida
             // Load map
             map.loadMap(@"maps/map1.txt");
 
+            ss = new StatusScreen(Content, graphics);
+
             //Background
             background = new Background(Content, map);
 
             //Life
             life = new Life(Content.Load<Texture2D>(@"images/Heart"), 
-                            Content.Load<Texture2D>(@"images/Game Over"));
+                            Content.Load<Texture2D>(@"images/Game Over"),
+                            ss);
             life.life = 5;
 
             //Gems
-            gems = new Gems(Content, graphics);
+            gems = new Gems(Content, graphics, ss);
             
             c = new CharacterManager(Content, map, life);
             b = new BugManager(Content, map, gems);
 
             clickmanager.Add(c);
             clickmanager.Add(b);
-            player = new Player(clickmanager);
-
-            ss = new StatusScreen(Content, graphics, life, gems);
-
+            player = new Player(clickmanager, ss);
+            
             gameobjects.Add(background);
             gameobjects.Add(c);
             gameobjects.Add(player);

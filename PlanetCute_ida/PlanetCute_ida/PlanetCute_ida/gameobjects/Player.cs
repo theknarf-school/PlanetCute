@@ -14,10 +14,12 @@ namespace PlanetCute_ida
         private Rectangle collisionMouse;
         private const int size = 10;
         private Clickmanager cm;
+        private StatusScreen ss;
 
-        public Player(Clickmanager cm)
+        public Player(Clickmanager cm, StatusScreen ss)
         {
             this.cm = cm;
+            this.ss = ss;
         }
 
         public virtual void Update(GameTime gameTime)
@@ -36,7 +38,8 @@ namespace PlanetCute_ida
 
         public void Click(Rectangle mouse)
         {
-            cm.Click(mouse);
+            if(this.ss.Playing)
+                cm.Click(mouse);
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
