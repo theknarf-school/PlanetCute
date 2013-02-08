@@ -96,13 +96,13 @@
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>
     <Content Include="icon.ico" />
-    <EmbeddedResource Include="maps\map3.txt">
+    <EmbeddedResource Include="maps\final level.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="maps\map2.txt">
+    <EmbeddedResource Include="maps\level 2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="maps\map1.txt">
+    <EmbeddedResource Include="maps\level 1.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

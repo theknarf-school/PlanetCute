@@ -9,11 +9,22 @@ using Microsoft.Xna.Framework.Input;
 
 namespace PlanetCute_ida
 {
+    /// <summary>
+    /// The Background class draws the background based on a map
+    /// </summary>
     class Background : GameObject
     {
+        // The Tile files for all the graphics used
         Tile[] tSprites = new Tile[15];
+
+        // The map used to draw the background
         Map mMap;
 
+        /// <summary>
+        /// Initialize the Background with a map
+        /// </summary>
+        /// <param name="Content">An argument used to load in graphics</param>
+        /// <param name="map">The map used to draw graphics</param>
         public Background(ContentManager Content, Map map)
         {
             // Loading in sprites
@@ -35,7 +46,12 @@ namespace PlanetCute_ida
 
             this.mMap = map;
         }
-
+        
+        /// <summary>
+        /// Used to get the drawing order of Tiles correct
+        /// </summary>
+        /// <param name="y">The y from the for loop</param>
+        /// <returns>The correct horizontal drawing order</returns>
         public int transformY(int y)
         {
             int[] arr = { 4, 3, 0, 1, 2 };
@@ -50,6 +66,11 @@ namespace PlanetCute_ida
         {
         }
 
+        /// <summary>
+        /// Draws all the background Tiles
+        /// </summary>
+        /// <param name="spriteBatch"></param>
+        /// <param name="gameTime"></param>
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             for (int x = 0; x < this.mMap.width; x++)

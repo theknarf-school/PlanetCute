@@ -16,6 +16,7 @@ namespace PlanetCute_ida
         private Tile tGameover;
         private Tile tGamewon;
         private Tile tEscape;
+        private Tile tNext;
 
         public bool GameOver { get { return Status == -1; } set { if (Status == 0 && value == true) Status = -1; } }
         public bool GameWon  { get { return Status == 1; }  set { if (Status == 0 && value == true) Status = 1; } }
@@ -24,8 +25,9 @@ namespace PlanetCute_ida
         public StatusScreen(ContentManager Content, GraphicsDeviceManager gdm)
         {
             tGameover = new Tile(Content, @"images/Game Over", 0);
-            tGamewon = new Tile(Content, @"images/Game Win", 0);
-            tEscape = new Tile(Content, @"images/Game Escape", 0);
+            tGamewon  = new Tile(Content, @"images/Game Win", 0);
+            tEscape   = new Tile(Content, @"images/Game Escape", 0);
+            tNext     = new Tile(Content, @"images/press n for next level", 0); 
             this.gdm = gdm;
         }
 
@@ -50,6 +52,12 @@ namespace PlanetCute_ida
                                  new Vector2(
                                              (this.gdm.PreferredBackBufferWidth - tGamewon.getSprite().Width) / 2,
                                              (this.gdm.PreferredBackBufferHeight - tGamewon.getSprite().Height) / 2),
+                                 Color.White);
+
+                spriteBatch.Draw(tNext.getSprite(),
+                                 new Vector2(
+                                             (this.gdm.PreferredBackBufferWidth  - tNext.getSprite().Width) / 2,
+                                             this.gdm.PreferredBackBufferHeight /2 + tNext.getSprite().Height * 2),
                                  Color.White);
             }
 

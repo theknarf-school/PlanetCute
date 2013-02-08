@@ -46,7 +46,7 @@ namespace PlanetCute_ida
         protected override void Initialize()
         {
             this.IsMouseVisible = true;
-            this.Window.Title = "Planet Cute - Hit 'n' for next lever if you win the current one";
+            this.Window.Title = "Planet Cute";
             base.Initialize();
         }
 
@@ -56,14 +56,16 @@ namespace PlanetCute_ida
         /// </summary>
         protected override void LoadContent()
         {
-            allMaps.Enqueue("map1.txt");
-            allMaps.Enqueue("map2.txt");
-            allMaps.Enqueue("map3.txt");
+            allMaps.Enqueue("level 1");
+            allMaps.Enqueue("level 2");
+            allMaps.Enqueue("final level");
             newgame((string)allMaps.Dequeue());    
         }
 
         private void newgame(String mapPath)
         {
+            this.Window.Title = "Planet Cute - " + mapPath;
+
             Map map = new Map();
             CharacterManager cmanager;
             Background background;
@@ -76,7 +78,7 @@ namespace PlanetCute_ida
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // Load map
-            map.loadMap(@"maps/" + mapPath);
+            map.loadMap(@"maps/" + mapPath + ".txt");
 
             ss = new StatusScreen(Content, graphics);
 

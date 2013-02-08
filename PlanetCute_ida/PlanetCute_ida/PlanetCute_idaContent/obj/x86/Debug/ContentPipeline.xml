@@ -559,6 +559,15 @@
       <Output>C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\Game Win.xnb</Output>
       <Time>2013-02-08T18:33:56.2676647+01:00</Time>
     </Item>
+    <Item>
+      <Source>images\press n for next level.png</Source>
+      <Name>images\press n for next level</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\FrankLyder\Documents\GitHub\PlanetCute\PlanetCute_ida\PlanetCute_ida\PlanetCute_ida\bin\x86\Debug\Content\images\press n for next level.xnb</Output>
+      <Time>2013-02-08T22:52:46.2424604+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
