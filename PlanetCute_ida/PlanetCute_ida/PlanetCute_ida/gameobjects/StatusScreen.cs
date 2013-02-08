@@ -8,34 +8,43 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace PlanetCute_ida
 {
+    /// <summary>
+    /// A class to print out 'game over' and 'game won' messages among other things
+    /// </summary>
     class StatusScreen : GameObject
     {
-        private int Status = 0;
-        private GraphicsDeviceManager gdm;
+        private int Status = 0;             // Is the game won or lost or playing?
+        private GraphicsDeviceManager gdm;  // Used to get window width and height
+        private bool last;                  // Is it the last level?
 
+        // Graphics
         private Tile tGameover;
         private Tile tGamewon;
         private Tile tEscape;
         private Tile tNext;
 
+        // Abstractions over the Status variable
         public bool GameOver { get { return Status == -1; } set { if (Status == 0 && value == true) Status = -1; } }
         public bool GameWon  { get { return Status == 1; }  set { if (Status == 0 && value == true) Status = 1; } }
         public bool Playing { get { return Status == 0; } }
 
-        public StatusScreen(ContentManager Content, GraphicsDeviceManager gdm)
+        public StatusScreen(ContentManager Content, GraphicsDeviceManager gdm, bool last)
         {
             tGameover = new Tile(Content, @"images/Game Over", 0);
             tGamewon  = new Tile(Content, @"images/Game Win", 0);
             tEscape   = new Tile(Content, @"images/Game Escape", 0);
             tNext     = new Tile(Content, @"images/press n for next level", 0); 
             this.gdm = gdm;
+            this.last = last;
         }
 
-        public void Update(GameTime gameTime)
-        {
+        public void Update(GameTime gameTime) {}
 
-        }
-
+        /// <summary>
+        /// Draws the correct graphics
+        /// </summary>
+        /// <param name="spriteBatch"></param>
+        /// <param name="gameTime"></param>
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             if (GameOver)

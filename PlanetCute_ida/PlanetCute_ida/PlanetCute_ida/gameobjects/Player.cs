@@ -8,6 +8,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace PlanetCute_ida
 {
+    /// <summary>
+    /// A player class currently only used to handle mouse clicks
+    /// </summary>
     class Player : GameObject, Clickable
     {
         private MouseState prevMouseState;
